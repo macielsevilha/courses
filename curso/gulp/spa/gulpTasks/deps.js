@@ -1,14 +1,20 @@
 const gulp = require('gulp')
+const uglifycss = require('gulp-uglifycss')
 
-function depsCSS(cb) {
+const concat = require('gulp-concat')
 
-    return cb()
+
+function depsCSS() {
+    return gulp.src('node_modules/font-awesome/css/font-awesome.css')
+        .pipe(uglifycss({ "uglifyComments": false }))
+        .pipe(concat('deps.min.css'))
+        .pipe(gulp.dest('build/assets/css'))
 }
 
-function depsFonts(cb) {
+function depsFonts() {
 
-    return cb()
-
+    return gulp.src('node_modules/font-awesome/fonts/*.*')
+        .pipe(gulp.dest('build/assets/fonts'))
 }
 
 module.exports = {
