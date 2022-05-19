@@ -13,13 +13,29 @@
     <div id='conteudo'></div>
 
     <script>
-        const pessoas = [
-            { nome: 'Ana', nota: 9.1 },
-            { nome: 'Bianca', nota: 8.4 },
-            { nome: 'Carlos', nota: 7.6 },
-            { nome: 'Julia', nota: 9.7 }
-        ]
-        
-        // ...
+        const pessoas = [{
+            nome: 'Ana',
+            nota: 9.1
+        }, {
+            nome: 'Bianca',
+            nota: 8.4
+        }, {
+            nome: 'Carlos',
+            nota: 7.6
+        }, {
+            nome: 'Julia',
+            nota: 9.7
+        }]
+        const conteudo = $('#conteudo')
+        conteudo.replaceWith(pessoas.map(e => {
+            return conteudo.append(`
+            <table>
+                <tr> ${e.nome} </tr>
+                <tr> ${e.nota} </tr>
+            </table>`
+
+            )
+
+        }))
     </script>
 </body>
