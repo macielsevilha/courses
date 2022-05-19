@@ -26,16 +26,22 @@
             nome: 'Julia',
             nota: 9.7
         }]
-        const conteudo = $('#conteudo')
-        conteudo.replaceWith(pessoas.map(e => {
-            return conteudo.append(`
-            <table>
-                <tr> ${e.nome} </tr>
-                <tr> ${e.nota} </tr>
-            </table>`
 
-            )
+        // $(function(){})
 
-        }))
+
+        $(document).ready(function() {
+            const linhas = pessoas.map(p => {
+                const tdNome = $('<td>').html(p.nome)
+                const tdNota = $('<td>').html(p.nota)
+
+                return $('<tr>').append(tdNome).append(tdNota)
+            })
+
+            const tabela = $('<table>').append(linhas)
+                .css('border', 'solid 4px')
+
+            $('#conteudo').append(tabela)
+        })
     </script>
 </body>
