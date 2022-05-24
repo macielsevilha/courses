@@ -12,7 +12,7 @@
             background-color: #999;
             color: #000;
         }
-
+        
         div {
             position: absolute;
             display: inline;
@@ -28,6 +28,38 @@
     <div>Animar!</div>
 
     <script>
-        // ...
+        function alterarLargura(valor, duracao, callback) {
+            $('div').animate({
+                width: `+=${valor}`
+            }, duracao, callback)
+
+        }
+
+        function moverDiagonal(valor, duracao, callback) {
+            $('div').animate({
+                top: `+=${valor}`,
+                left: `+=${valor}`
+            }, duracao, callback)
+
+        }
+
+        function girar(valor, duracao, callback) {
+            $('div').animate({
+                transform: `+=${valor}`
+            }, {
+                step: function(valor) {
+                    $(this).css('transform', `rotate(${valor}deg)`)
+                },
+                duration: duracao
+            }, 'linear', callback)
+
+        }
+        alterarLargura(300, 100, () => {
+            alterarLargura(-300, 'slow', () => {
+                moverDiagonal(300, 1000, () => {
+                    girar(3000, 1000)
+                })
+            })
+        })
     </script>
 </body>
