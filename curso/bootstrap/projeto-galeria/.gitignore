@@ -1,2 +1,5 @@
 node_module
+node_modules
+bootstrap
+*.json
 build
