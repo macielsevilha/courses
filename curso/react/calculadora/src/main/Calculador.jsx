@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 
-import './Calculator.css'
+import './Calculador.css'
 
 export default class Calculator extends Component {
     render() {
