@@ -3,11 +3,13 @@ import React, { Component} from "react";
 import './Calculador.css'
 
 import Button from "../components/Button";
+import Display from "../components/Display";
 
 export default class Calculator extends Component {
     render() {
         return (
             <div className="calculador">
+                <Display value={10} />
                 <Button label="AC"/>
                 <Button label="/"/>
                 <Button label="7"/>
