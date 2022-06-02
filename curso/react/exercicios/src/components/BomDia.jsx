@@ -6,4 +6,4 @@ export default props =>
         <p>Resultado do curso</p>
     </Fragment>
 
-    // Dentro de div, [] array ou fragment
+    // Dentro de div, [] necessita de key array ou fragment
