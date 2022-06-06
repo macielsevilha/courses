@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import Display from "../components/Display";
 
 export default class Calculator extends Component {
+    
 constructor(props) {
     super(props)
     this.clearMenory = this.clearMenory.bind(this)
