@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
     --bg-dark: #1A2F3A;
     --logo-height: 100px;
@@ -9,7 +10,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
