@@ -1,14 +1,16 @@
-import React from "react";
 import './Main.css'
-import Header from "./Header";
+import React from 'react'
+import Header from './Header' 
+// Texto do header receberá valores diferentes conforme navegação
 
 export default props =>
-     <React.Fragment>
-         <Header {...props} />
-         <main className="content container-fluid">
-             <div className="p-3 mt-3">
-                 {props.children}
-             </div>
-         </main>
-     </React.Fragment>
-
+    // {...props} -> Header recebe propriedade definidas no main em App.jsx
+    <React.Fragment> 
+        <Header {...props} /> 
+        <main className="content container-fluid">
+            <div className="p-3 mt-3">
+            {/* Recebe componentes informados em App.jsx */}
+                {props.children} 
+            </div>
+        </main>
+    </React.Fragment>

@@ -1,6 +1,5 @@
-import React from "react";
-import { Component } from "react";
-import Main from './template/Main'
+import React, { Component } from "react";
+import Main from "../template/Main";
 
 const headerProps = {
     icon: 'users',
