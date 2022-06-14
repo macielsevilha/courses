@@ -18,6 +18,12 @@ export default class UserCrud extends Component {
 
     state = {...initialState}
 
+    componentWillMount() {
+        axios(baseUrl).then(resp => {
+            this.setState( { list: resp.data })
+        })
+    }
+
     clear() {
         this.setState({ user: initialState.user })
     }
@@ -33,9 +39,9 @@ export default class UserCrud extends Component {
              })
     }
 
-    getUpdateList(user) {
+    getUpdateList(user, add = true) {
         const list = this.state.list.filter(u => u.id !== user.id)
-        list.unshift(user)
+        if (add) list.unshift(user)
         return list
     }
 
@@ -78,10 +84,64 @@ export default class UserCrud extends Component {
             </div>
         )
     }
+
+    load(user) {
+        this.setState({ user })
+    }
+
+    remove(user) {
+        axios.delete(`${baseUrl}/${user.id}`).then(resp => {
+            const list = this.getUpdateList(user, false)
+            this.setState({ list })
+        })
+    }
+
+    renderTable() {
+        return (
+            <table className="table mt-4">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { this.renderRows() }
+                </tbody>
+            </table>
+        )
+    }
+
+    renderRows() {
+        return this.state.list.map(user => {
+            return (
+                <tr key={user.id}>
+                   <td>{user.id}</td>
+                   <td>{user.name}</td>
+                   <td>{user.email}</td>
+                   <td>
+                    <button className="btn btn-warning"
+                    onClick={() => this.load(user)}
+                    >
+                        <i className="fa fa-pencil"></i>
+                    </button>
+                    <button className="btn btn-danger ml-2"
+                    onClick={() => this.remove(user)}
+                    >
+                        <i className="fa fa-trash"></i>
+                    </button>
+                   </td>
+                </tr>
+            )
+        })
+    }
     render() {
         return (
             <Main {...headerProps} >
                { this.renderForm() }
+               { this.renderTable() }
             </Main>
         )
     }
