@@ -14,6 +14,7 @@ export default function() {
             <Navegador texto="Exemplo" destino="/exemplo" cor="#9400d3" />
             <Navegador texto="JSX" destino="/jsx" cor="crimson" />
             <Navegador texto="Navegação #01" destino="/navegacao" cor="green" />
+            <Navegador texto="Navegação #02" destino="/cliente/sp-2/123" cor="blue" />
 
         </div>
     )
