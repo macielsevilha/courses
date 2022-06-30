@@ -8,18 +8,30 @@
 </head>
 <body class="exercicio">
   <div id="app">
-    <saudacao nome="Ana"></saudacao>
-    <saudacao nome="Bia"></saudacao>
-    <saudacao nome="Maciel"></saudacao>
-    <saudacao nome="Ester"></saudacao>
+    <contador></contador>
+    <contador></contador>
+    <contador></contador>
   </div>
     <script>
-       Vue.component('saudacao', {
-        props: ['nome'],
+      Vue.component('contador', {
+        data: function () {
+          return {
+            contador: 0
+          }
+        },
+        methods: {
+          add() {
+            this.contador++
+          }
+        }, 
         template: `
-          <div>Bom dia {{ nome }} "!</div>
+         <div>
+            <span>{{ contador }} </span>
+            <button @click="add">+1</button>
+            <button @click="contador--">-1</button>
+         </div>
         `
-       })
+      })
 
        new Vue({
          el: "#app"
