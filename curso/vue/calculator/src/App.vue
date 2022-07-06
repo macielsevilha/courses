@@ -1,39 +1,40 @@
-
-
 <template>
-  <div id="app">
-    <h1>Olá mundo</h1>
+  <div>
+    <h1>Caculador</h1>
+    <Calculador />
   </div>
 </template>
 
 <script>
-export default  {
+import Calculador from './main/Calculator.vue'
+export default {
+  name: 'App',
+  components: { Calculador }
   
 }
-
 </script>
 
 <style>
-@font-face {
+  @font-face {
     font-family: "RobotoMono";
-    src: url('./fonts/RobotoMono-Thin.ttf');
-}
-*{
-    font-family: 'RobotoMono', monospace;
-}
-
-body {
-    margin: 0;
-}
-
-#app {
+    src: url("./fonts/RobotoMono-Thin.ttf");
+  }
+  *{
+    font-family: "RobotoMono", monospace;
+  }
+  body {
+    display: 0;
+  }
+  #app {
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    color: aliceblue;
-    background: linear-gradient(#e66465, #9198e5);
-}
+    text-align: center;
 
+    color: aliceblue;
+    background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73));
+
+  }
 </style>
