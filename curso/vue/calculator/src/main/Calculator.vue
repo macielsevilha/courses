@@ -1,18 +1,34 @@
 <template>
   <div class="calculator">
-    <DisplayVue />
-    <ButtonVue />
+    <Display />
+    <Button label="AC" triple />
+    <Button label="/" operation />
+    <Button label="7" />
+    <Button label="8" />
+    <Button label="9" />
+    <Button label="*" operation />
+    <Button label="4" />
+    <Button label="5" />
+    <Button label="6" />
+    <Button label="-" operation />
+    <Button label="1" />
+    <Button label="2" />
+    <Button label="3" />
+    <Button label="+" operation />
+    <Button label="0" double />
+    <Button label="." />
+    <Button label="=" operation />
   </div>
 </template>
 
 <script>
-import DisplayVue from '@/components/Display.vue'
-import ButtonVue from '@/components/Button.vue'
+import Display from '@/components/Display.vue'
+import Button from '@/components/Button.vue'
 export default {
   name: 'AllCaculador',
   components: {
-    DisplayVue,
-    ButtonVue
+    Display,
+    Button
   }
 }
 </script>
