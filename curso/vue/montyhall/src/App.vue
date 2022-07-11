@@ -74,5 +74,6 @@ export default {
     justify-content: space-around;
 
     flex-wrap: wrap;
+    color: C;
   }
 </style>
