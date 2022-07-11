@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { ipcRenderer } from 'electron'
 import PillVue from './Pill.vue'
 
 export default {
@@ -27,16 +28,16 @@ export default {
   data: function() {
     return {
         files: [],
-        groupedWords: [
-            { name: 'my', amount: 1223},
-            { name: 'his', amount: 900},
-            { name: 'hir', amount: 590},
-        ]
+        groupedWords: []
     }
   },
   methods: {
     processSubtitles() {
-        console.log(this.files)
+        const paths = this.files.map(f => f.path)
+        ipcRenderer.send('process-subtitles', paths)
+        ipcRenderer.on('process-subtitles', (event, resp) => {
+            this.groupedWords = resp
+        })
     }
   }
 }
