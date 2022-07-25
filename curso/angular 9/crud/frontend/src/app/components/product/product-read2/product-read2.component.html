@@ -13,7 +13,12 @@
     </ng-container>
     <!-- price Column -->
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Preço</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Preï¿½o</th>
+      <td mat-cell *matCellDef="let row">{{row.price}}</td>
+    </ng-container>
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Preï¿½o</th>
       <td mat-cell *matCellDef="let row">{{row.price}}</td>
     </ng-container>
 
