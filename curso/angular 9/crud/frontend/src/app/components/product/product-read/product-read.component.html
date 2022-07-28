@@ -13,20 +13,20 @@
       </ng-container>
       <!-- price Column -->
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef>Preço</th>
+        <th mat-header-cell *matHeaderCellDef>Preï¿½o</th>
         <td mat-cell *matCellDef="let row">{{row.price | currency: 'BRL'}}</td>
       </ng-container>
       <!-- action Column -->
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <th mat-header-cell *matHeaderCellDef>Aï¿½ï¿½es</th>
         <td mat-cell *matCellDef="let row">
           <a routerLink="/products/update/{{ row.id }}" class="edit">
             <i class="material-icons">
               edit
             </i>
           </a>
-          <a routerink="" class="delete">
-            <i class="material-icons" routerLink="/products/delete/{{ row.id }}">
+          <a routerLink="/products/delete/{{ row.id }}" class="delete">
+            <i class="material-icons">
               delete
             </i>
           </a>
