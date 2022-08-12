@@ -100,17 +100,17 @@ INSERT INTO clientes(cpf_cli, nome_cli, sobrenome_cli, nasci_cli, naturi_cli, en
          ('954.395.935-86','Kelly','Silva dos Santos','2007/03/20','Brasileiro','','779945789865', 'kelly954silva@gmail.com','779967895456');
 
 INSERT INTO colaboradores(cpf_colb, funcao_colb, dtEmissao_colb, salario_colb, hrTrabalho_colb,telef_colb, email_colb, end_colb, dtNasci_colb) 
-         ('453.565.455-54','','2022/05/20','700.00','5:00','779947545675','maciel453.empresa@gmail.com','Rua Ruí Barbosa','1995/04/12'),
-         ('456.354.345-55','','2022/05/20','500.00','5:00','779934455654','ana456.empresa@gmail.com','Rua Magalhões','1966/07/03'),
-         ('323.455.454-22','','2022/05/20','1200.00','7:00','779956678645','tainara323.empresa@gmail.com','Rua Centro Brasil','2002/04/22'),
-         ('444.354.343-88','','2022/05/20','1200.00','7:00','779956546644','taina444.empresa@gmail.com','Avenida Luís Eduardo','2003/08/12'),
-         ('433.234.544-88','','2022/07/26','200.00','2:00','779956678953','marta433.empresa@gmail.com','Rua ramairo centro','2000/10/15'),
-         ('453.456.343-34','','2022/07/26','700.00','6:00','779956464645','maysa453.empresa@gmail.com','Avenida 167 Centro','1993/06/23'),
-         ('455.765.545-55','','2022/07/26','1200.00','7:00','779945687666','marcon455.empresa@gmail.com','Rua ','1998/12/30'),
-         ('767.554.344-43','','2022/07/26','1200.00','7:00','779942454556','lucas767.empresa@gmail.com','Rua Avenida magalhões','1993/01/09'),
-         ('995.435.674-43','','2022/09/08','700.00','6:00','779956765445','tiago995.empresa@gmail.com','Rua Ruí Barbosa','2003/04/27'),
-         ('545.454.665-54','','2022/09/08','899.00','6:00','779956544565','marta545.empresa@gmail.com','Rua Ruí Barbosa','1889/03/12'),
-         ('345.556.353-56','','2022/09/08','899.00','6:00','779954667656','maciel345.empresa@gmail.com','Avenida Luís Eduardo','1993/09/29');
+         ('453.565.455-54','auxiliar de limpeza','2022/05/20','500.00','5:00','779947545675','maciel453.empresa@gmail.com','Rua Ruí Barbosa','1995/04/12'),
+         ('456.354.345-55','balconista','2022/05/20','500.00','5:00','779934455654','ana456.empresa@gmail.com','Rua Magalhões','1966/07/03'),
+         ('323.455.454-22','repositor de mercadorias','2022/05/20','600.00','7:00','779956678645','tainara323.empresa@gmail.com','Rua Centro Brasil','2002/04/22'),
+         ('444.354.343-88','operador de caixa','2022/05/20','800.00','7:00','779956546644','taina444.empresa@gmail.com','Avenida Luís Eduardo','2003/08/12'),
+         ('433.234.544-88','encarregado de estoque','2022/07/26','200.00','2:00','779956678953','marta433.empresa@gmail.com','Rua ramairo centro','2000/10/15'),
+         ('453.456.343-34','vendedor','2022/07/26','700.00','6:00','779956464645','maysa453.empresa@gmail.com','Avenida 167 Centro','1993/06/23'),
+         ('455.765.545-55','operador de caixa','2022/07/26','800.00','7:00','779945687666','marcon455.empresa@gmail.com','Rua ','1998/12/30'),
+         ('767.554.344-43','operador de caixa','2022/07/26','800.00','7:00','779942454556','lucas767.empresa@gmail.com','Rua Avenida magalhões','1993/01/09'),
+         ('995.435.674-43','vendedor','2022/09/08','700.00','6:00','779956765445','tiago995.empresa@gmail.com','Rua Ruí Barbosa','2003/04/27'),
+         ('545.454.665-54','entregador','2022/09/08','500.00','6:00','779956544565','marta545.empresa@gmail.com','Rua Ruí Barbosa','1889/03/12'),
+         ('345.556.353-56','mpacotador','2022/09/08','200.00','6:00','779954667656','maciel345.empresa@gmail.com','Avenida Luís Eduardo','1993/09/29');
 
 
 INSERT INTO vendas(p_venda, qtd_venda, CT_venda, CFME_venda, CVME_venda, CME_venda, CMZ_venda)
@@ -126,3 +126,29 @@ INSERT INTO vendas(p_venda, qtd_venda, CT_venda, CFME_venda, CVME_venda, CME_ven
          ('2022/10/31','38','999.00','840.00','1839.00','26.28','22.10','48.39','142.85'),
          ('2022/11/30','66','999.00','800.00','1799.00','15.13','12.12','27.25','83.33'),
          ('2022/12/31','78','999.00','810.00','1809.00','12.80','10.28','23.19',''),
+
+
+INSERT INTO valores_pagar(data_pag, custoF_pag,  custoV_pag, custoT_pag)
+  VALUES ('2022/01/31','1199800','1200000','2399800'),
+		 ('2022/02/28','1199800','1220000','2419800'),
+		 ('2022/03/31','1199800','1299900','2499700'),
+		 ('2022/04/30','1199800','1199900','2399700'),
+		 ('2022/05/31','1199800','1000000','2199800'),
+		 ('2022/06;30','1199800','1100000','3199800'),
+		 ('2022/07/31','1199800','1190000','2389800'),
+		 ('2022/08/31','1199800','1200000','2399800'),
+		 ('2022/09/30','1199800','1000000','2199800'),
+		 ('2022/10/31','1199800','1010000','2209800'),
+		 ('2022/11/30','1199800','1110000','2309800'),
+
+INSERT INTO()
+VALUES ('01.827.272','Mariana','Alcântara','1998/07/23','Itapuã, Salvador - BA','997261839','Mari.ana@hotmail.com','4','63.00' ),
+       ('014.737.938','Sukuna','oliveira','2002/09/20','costa azul, Salvador - BA','971947287','Marciel70@hotmail.com','1','20.00' ),
+       ('300.955.124','Erica','conceicao de oliveira','2000/05/02','piatã, Salvador - BA','991518179','Erica.Paula49@hotmail.com','3','25.34' ),
+       ('393.913.293','Caue','Motta','1997/06/29','imbui narandiba, Salvador - BA','993747288','Cacau2.0@hotmail.com','1','14.00' ),
+       ('002.929.282','Jimin','park','1993/02/09','São Cristóvão, Salvador - BA','928128462','Jiminiepark@hotmail.com','7','95.00' ),
+       ('915.877.837','Nanjoon','kin','1994/12/31','rio vermelho, Salvador - BA','993816444','RMmochi@hotmail.com','4','33.50' ),
+       ('251.193.988','J-hope','hoseok','1993/09/2002','barroquinha, Salvador - BA','999174527','Jeon.Jayi@hotmail.com','1','15.00' ),
+       ('251.193.988','Yoongi','min','1993/04/25','Itapuã, Salvador - BA','982918262','Suga.kookie@hotmail.com','3','43.00' ),
+       ('132.175.928','Lalisa','manobal','1997/09/12','Itapuã, Salvador - BA','9264947281','Lisapink@hotmail.com','2','20.00' ),
+       ('132.175.928','Taehyung','Kim,','1995/12/30','Itapuã, Salvador - BA','91936211','V.tataeoppa@hotmail.com','1','8.00' );
