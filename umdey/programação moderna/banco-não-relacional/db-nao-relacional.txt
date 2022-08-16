@@ -1,0 +1,24 @@
+comandos básicos****************
+
+show dbs
+use wm
+db.createCollection('estado')
+show collections
+db.estado.drop()
+
+Inserir Dados********************
+db.estados.insert({nome: 'Acre', sigla: 'AC', regiao: 'Norte'})
+db.estados.save({nome: 'Alagoas', sigla: 'AL', regiao: 'Nordeste', populacao: 100000})
+db.estados.find()
+db.estados.find().pretty()
+db.estados.insert({
+    nome: 'Rio de Janeiro',
+    sigla: 'RJ',
+    regiao: 'Sudeste',
+    cidades: [{
+        nome: 'São Felix'
+        area: 133.9,
+        populacao: 500
+    }]
+})
+
