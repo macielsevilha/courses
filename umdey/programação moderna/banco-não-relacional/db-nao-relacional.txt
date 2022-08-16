@@ -22,3 +22,8 @@ db.estados.insert({
     }]
 })
 
+Desafio***********************8
+db.Estado.insert(_id: ObjectId, nome: 'Campinas', area: 795.5, prefeito: 'Jonas Donizette')
+db.Estado.insert({_id: ObjectId, nome: 'Garulhos', populacao: 1325000})
+db.Estado.insert({_id: ObjectId, nome: 'Sorocaba', distanciaCapital: 87, populacao: 644919})
+ 
