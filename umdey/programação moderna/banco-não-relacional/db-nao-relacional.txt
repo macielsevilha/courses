@@ -50,3 +50,13 @@ db.estados.save({
         populacao: 644919
     }]
 })
+
+/* Consultas #01 */
+db.estados.findOne()
+db.estados.findOne({sigla: "RJ"})
+db.estados.find({$or: [{sigla: 'RJ"}, {sigla: 'AC'}]}).pretty()
+db.estados.find({populacao: {$exists: true}})
+db.estados.find().skip(1).limit(2)
+db.estados.count()
+db.estados.find(sigla: 'SP', {nome: 1, sigla: 1, _id: 0})
+
