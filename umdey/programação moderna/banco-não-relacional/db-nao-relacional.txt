@@ -85,3 +85,10 @@ db.estados.update(
 )
 db.estados.find({populacao: {$exists: true}}, {_id: 0, nome: 1})
 db.estados.update({})
+
+/* Remove */
+db.estados.count()
+db.estados.remove({sigla: 'AC'})
+db.estados.remove({populacao: {$exists: true}}, 1)
+db.estados.update({sigla: 'RJ'}, {$set: {populacao:167000000}})
+d.estados.remove(populacao: {$lt: 1000000})
