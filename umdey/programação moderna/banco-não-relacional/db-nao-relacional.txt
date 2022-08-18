@@ -75,3 +75,13 @@ db.estados.aggregate([
     { $match: {'cidades.nome': 'Sorocaba' } },
     { $project: {_id: '$cidades._id'} }
 ]).pretty()
+
+/* Update */
+db.estados.update({sigla: 'SP'}, {$set: {populacao: 2000000} } )
+db.estados.update({sigla: 'AL', {$set: {cidades: [{nome: 'Sergipe'}]} } })
+db.estados.update(
+    {sigla: 'SP'},
+    {$push: {cidades: {nome: 'Santos', populacao: 300200} } }
+)
+db.estados.find({populacao: {$exists: true}}, {_id: 0, nome: 1})
+db.estados.update({})
