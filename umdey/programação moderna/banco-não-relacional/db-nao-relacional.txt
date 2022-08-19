@@ -97,3 +97,15 @@ d.estados.remove(populacao: {$lt: 1000000})
 /* Inserir Empresas */
 db.empresas.insert({nome: "Bradesco",estadoId: ObjectId("62fc157bc5da1dd38e8be5ec") })
 db.emprsas.insert({nome: "Vale", cidadeId: ObjectId("62fc157bc5da1dd38e8be5eb")})
+
+/* Consultas com Lookup */
+db.empresas.aggregate([
+    {$match: {nome: 'Bradesco'}},
+    {$lookup: {
+        from: 'estados',
+        localField: 'estadoId',
+        foreignField: '_id',
+        as: 'estado'
+    }},
+    {$unwind: '$estado'},
+]).pretty()
