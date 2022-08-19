@@ -89,9 +89,6 @@ DROP TABLE valores_receber;
 DROP TABLE valores_pagar;
 DROP TABLE vendas;
 
-/* CRIACÃO DE VISÕES OU VIEWS */
-CREATE VIEW 
-
 /* TABELA DE CLIENTES */
 INSERT INTO clientes(cpf_cli, nome_cli, sobrenome_cli, dtNasci_cli, naturi_cli, end_cli, telef_cli, email_cli, whatsapp_cli)
   VALUES ('153.236.343-03','Maisa','Silva Oliveira','1999/03/11','Brasileiro','','779994539485', 'maisa153silva@gmail.com','779983747823'),
@@ -205,46 +202,8 @@ SELECT * FROM colaboradores ORDER BY salario_colb DESC;
 UPDATE fornecedores SET nome_forn="Organização Tabajara" WHERE matri_forn=4;
 SELECT * FROM fornecedores ORDER BY nome_forn ASC;
 
-/* USUÁRIOS ADM */
-CREATE USER 'marcela.salabim'@'%' IDENTIFIED BY 'user0953';
-CREATE USER 'maciel.anjos'@'%' IDENTIFIED BY 'user0953';
-CREATE USER 'lucas.silva'@'localhost' IDENTIFIED BY 'user0953';
-CREATE USER 'ceilia.cardoso'@'localhost' IDENTIFIED BY 'user0953';
-CREATE USER 'pietro.ferreira'@'%' IDENTIFIED BY 'user0953';
-CREATE USER 'victor.sevilha'@'localhost' IDENTIFIED BY 'user0953';
-CREATE USER 'ana.migues'@'%' IDENTIFIED BY 'user0953';
-CREATE USER 'sofia.melo'@'localhost' IDENTIFIED BY 'user0953';
-CREATE USER 'julia.silva'@'localhost' IDENTIFIED BY 'user0953';
-CREATE USER 'marcos.oliveira'@'%' IDENTIFIED BY 'user0953';
 
-/* RESOLVENDO O ERRO 3/4 */
-flush privileges;
-alter user 'root'@'localhost' identified By '';
-flush privileges;
 
-SELECT USER FROM mysql.user;
-/* PERMISSÕES PARA OS USUÁRIOS */
-GRANT INSERT, SELECT ON  presentolandia.* TO 'marcela.salabim'@'%';
-GRANT SELECT, UPDATE ON presentolandia.colaboradores TO 'victor.sevilha'@'localhost';
-GRANT SELECT, DELETE, INSERT ON presentolandia.* TO 'maciel.anjos'@'%';
-GRANT INSERT, SELECT ON presentolandia.valores_pagar TO 'lucas.silva'@'localhost';
-GRANT SELECT ON presentolandia.clientes TO 'ceilia.cardoso'@'localhost';
-GRANT ALL PRIVILEGES ON *.* TO 'pietro.ferreira'@'%';
-GRANT ALL PRIVILEGES ON *.* TO 'ana.migues'@'%';
-GRANT DELETE, SELECT ON presentolandia.funcionarios TO 'sofia.melo'@'localhost';
-GRANT CREATE, ALTER, SELECT ON presentolandia.clientes TO 'julia.silva'@'localhost';
-GRANT CREATE, ALTER ON presentolandia.* TO 'marcos.oliveira'@'%';
-GRANT OPTION ON *.* TO 'marcos.oliveira'@'%';
-GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'lucas.silva'@'localhost';
 
-SHOW GRANTS FOR 'marcela.salabim'@'%';
-SHOW GRANTS FOR 'lucas.silva'@'localhost';
-SHOW GRANTS FOR  'pietro.ferreira'@'%';
 
-/* REVOGAR PERMISSÃO */
-REVOKE select, insert on presentolandia.valores_pagar from 'lucas.silva'@'localhost';
-REVOKE ALL privileges ON *.* from 'pietro.ferreira'@'%';
 
-/* APAGAR USUÁRIOS */
-DROP USER  'lucas.silva'@'localhost';
-SELECT USER FROM mysql.user;
