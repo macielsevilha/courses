@@ -2,8 +2,13 @@ const { response } = require('express')
 const express = require('express')
 const app = express()
 
-app.use('/opa',(req, res) => {
-   
+app.use('/opa', (req, res, next) => {
+    console.log('Antes...')
+    next()
+})
+
+app.get('/opa',(req, res, next) => {
+   console.log('Durante...')
      res.json({
         data: [
             {id: 1, name: 'Ana', position: 1},
@@ -23,6 +28,12 @@ app.use('/opa',(req, res) => {
    //})
 
    // res.send('Estou <b>bem!</b>')
+
+   next()
+})
+
+app.use('/opa', (req, res) => {
+    console.log('Depois...')
 })
 
 app.listen(3000, () => {
