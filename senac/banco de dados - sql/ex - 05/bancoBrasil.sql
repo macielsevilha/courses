@@ -42,6 +42,28 @@ CREATE TABLE funcionarios(
    dependente_fu VARCHAR(1) CHECK(sexo_func IN ('S', 'N')),
    login_fu NUMERIC NOT NULL
 );
+/* TABELA DE CONTAS CORRENTES */
+CREATE TABLE ct_corrente(
+   numConta_co VARCHAR(16) NOT NULL,
+   numAgencia_co NUMERIC NOT NULL,
+   cpf_co VARCHAR(14) PRIMARY KEY UNIQUE NOT NULL,
+   nome_co VARCHAR(100),
+   saldo_co VARCHAR(100) NOT NULL,
+   taxa_co FLOAT NOT NULL,
+   chavePix_co TEXT NOT NULL
+);
+/* DADOS DE CONTAS CORRENTES */
+INSERT INTO ct_corrente(numConta_co, numAgencia_co, cpf_co, nome_co, saldo_co, taxa_co, chavePix_co) 
+VALUES ('1142047-2','4552','784.707.838-40','Elaine Elza Bruna da Conceição','7000.00','0.5','CB01[#L{{AQkh:UOeUS[x9GTR{r;})=oLo%T$JTZyit@Qn0LV='),
+       ('0070425-3','6901','792.798.570-10','Teresinha Helena Sarah Farias','1000.00','0.7','I=6RipX?BC7kw)Dwsq*z9vNo4)4*mU}&hTbDb)B+%?oEmTzOp{'),
+       ('225898-6','3433','509.883.885-10','Danilo Guilherme Nelson Oliveira','23000.00','1.5','gFo%g#I@Zs+WU?@y=AN2Qn24rSa$]SlQ+&_S_BwEUwa3qcpk0['),
+       ('1054417-8','5442','456.851.596-33','Vanessa Débora Carvalho','40500.50','2.4','IO5!6;?[o=2hs2@aK{cENcla+vG;K@#(B?fb=S2N[vkDRxU&ie'),
+       ('221191-2','1119','774.778.651-40','Malu Olivia Isabela da Mata','30000.00','1.2','d90*wUw3}xs$he[tt)]Em1?[6g6oH!gP*ZlKr#EtV&*g{2!I;U'),
+       ('221191-2','1119','530.663.783-30','João Bryan das Neves','27000.00','1.8','KJNf)wh%lcQVoS7Vr]7CWvfJ]LA[mCyr5Hx1tH3_Qt9TP]E%pl'),
+       ('1608938-9','2301','535.382.607-88','Elaine Sophia Martins','76453.85','3.4','K[{f(SuGwdX?uy&[&AJ@ifqmoyIbcNH8Qh8x9e[bf]t:8D8dho'),
+       ('1234431-1','2076','317.498.507-29','Juliana Elisa da Rosa','904.99','0.3','Iw(knk+mb[*v0o%dTm5Mz}feH4NKO0GXqVfn(KJBh]n2v+nsK7'),
+       ('1134436-9','1267','501.766.248-05','Cristiane Camila da Costa','7934.00','0.9','*Or9Tp=Xu]?sA4zzvCME*oXurn2_*JodIc2wp5P1ohv0yiWTRI');
+       
 /* DADOS DOS FUNCIONÁRIOS */
 INSERT INTO funcionarios(matri_fu, cpf_fu, nome_fu, dtNasci_fu, dtAdm_fu, funcao_fu, dependente_fu, login_fu)
 VALUES ('134.567.385-01','Alice Elisa Pires','1978/03/17','2017/03/12','Entregador','S','0928',''),
