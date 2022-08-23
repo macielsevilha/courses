@@ -29,7 +29,20 @@ CREATE TABLE cli_juridica(
    rmdBruto_ju FLOAT NOT NULL,
    numConta_ju VARCHAR(16) NOT NULL,
    numAgencia_ju NUMERIC NOT NULL
+   
 );
+/* TABELA DE FUNCIONÁRIOS */
+CREATE TABLE funcionarios(
+   matri_fu INT PRIMARY KEY AUTO_INCREMENT,
+   cpf_fu VARCHAR(14) NOT NULL,
+   nome_fu VARCHAR(100),
+   dtNasci_fu DATE NOT NULL,
+   dtAdm DATE NOT NULL,
+   funcao_fu VARCHAR(50) NOT NULL,
+   dependente_fu VARCHAR(100) NOT NULL,
+   login_fu NUMERIC NOT NULL
+);
+
 
 drop table cli_juridica;
 select * from cli_juridica;
