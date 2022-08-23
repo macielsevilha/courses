@@ -1,8 +1,28 @@
+const { response } = require('express')
 const express = require('express')
 const app = express()
 
 app.use('/opa',(req, res) => {
-    res.send('Estou <b>bem!</b>')
+   
+     res.json({
+        data: [
+            {id: 1, name: 'Ana', position: 1},
+            {id: 34, name: 'Bia', position: 2},
+            {id: 34, name: 'Carlos', position: 3}
+        ],
+        count: 30,
+        skip: 0,
+        limit: 3,
+        status: 200
+})
+
+   //res.json({
+   // name: 'Monitor',
+   // price: 1899.00,
+   // discount: 0.12
+   //})
+
+   // res.send('Estou <b>bem!</b>')
 })
 
 app.listen(3000, () => {

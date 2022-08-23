@@ -1,6 +1,13 @@
 CREATE DATABASE bancoBrasil;
 use bancoBrasil;
-drop table ct_poupanca;
+
+select * from cli_fisico;
+select * from cli_juridica;
+select * from ct_cartao;
+select * from ct_corrente;
+select * from ct_poupanca;
+select * from ct_salario;
+SELECT * FROM funcionarios;
 
 /* TABELA DE PESSOAS FÍSICAS */
 CREATE TABLE cli_fisico(
@@ -84,10 +91,10 @@ CREATE TABLE extrato(
 );
 /* TABELA DE CARTÃO DE CRÉDITO */
 CREATE TABLE ct_cartao(
-   numCartao_ca INT(8) PRIMARY KEY UNIQUE NOT NULL,
+   numCartao_ca VARCHAR(50) PRIMARY KEY NOT NULL,
    nomeCli_ca VARCHAR(100) NOT NULL,
    validade_ca DATE NOT NULL,
-   codSeguranca_ca NUMERIC(4) NOT NULL UNIQUE 
+     codSeguranca_ca NUMERIC(4) NOT NULL UNIQUE,
    vmcCartao_ca DATE NOT NULL,
    bandeira_ca VARCHAR(55) NOT NULL,
    limiteT_ca FLOAT NOT NULL,
@@ -95,9 +102,11 @@ CREATE TABLE ct_cartao(
    limiteR_ca FLOAT NOT NULL,
    dtVencimento_ca DATE NOT NULL
 );
+
+DROP TABLE ct_cartao;
 /* DADOS DE CARTÃO DE CRÉDITO */
 INSERT INTO ct_cartao(numCartao_ca, nomeCli_ca, validade_ca, codSeguranca_ca, vmcCartao_ca, bandeira_ca, limiteT_ca, limiteU_ca, limiteR_ca, dtVencimento_ca)
-       ('5336412373148734','Pietro Bruno Kaique Bernardes','2023/02/23','487','2024/01/23','MasterCard','10000.00','3000.00','7000.00','24/01/31'),
+VALUES ('5336412373148734','Pietro Bruno Kaique Bernardes','2023/02/23','487','2024/01/23','MasterCard','10000.00','3000.00','7000.00','24/01/31'),
        ('5111345189626231','Davi Calebe da Costa','2023/02/23','238','2024/01/23','MasterCard','10000.00','4000.00','6000.00','24/01/31'),
        ('5340440336562596','Igor Marcos Vinicius Arthur Fernandes','2023/02/23','262','2024/01/23','MasterCard','10000.00','5000.00','5000.00','24/01/31'),
        ('5463825225306876','Luzia Daiane Drumond','2023/03/23','519','2024/01/23','MasterCard','10000.00','1000.00','9000.00','24/01/31'),
@@ -106,7 +115,7 @@ INSERT INTO ct_cartao(numCartao_ca, nomeCli_ca, validade_ca, codSeguranca_ca, vm
        ('5130643503949256','Isis Sophia Souza','2023/07/23','483','2024/01/23','MasterCard','10000.00','2500.00','7500.00','24/01/31'),
        ('5198916444908543','Giovana Silvana Tatiane Pinto','2023/02/23','271','2024/01/23','MasterCard','10000.00','5000.00','5000.00','24/01/31'),
        ('4556178367598582','Valentina Mariana Cavalcanti','2023/01/23','684','2024/01/23','Visa','50000.00','30000.00','20000.00','24/01/31'),
-       ('4485303815919539','Ruan Renato Mendes','2023/12/23','110','2024/01/23','Visa','50000.00','10000.00','40000.00','24/01/31')
+       ('4485303815919539','Ruan Renato Mendes','2023/12/23','110','2024/01/23','Visa','50000.00','10000.00','40000.00','24/01/31');
 /* DADOS DE EXTRATO */
 INSERT INTO extrato(agencia_ex, numConta_ex, data_ex, tpTransacao_ex, valor_ex, saldoAtual_ex)
 VALUES ('2473','145204-5','2019/09/12','Boletos','2000.00','5000.00'),
@@ -192,3 +201,8 @@ VALUES ('784.707.838-40','Elaine Elza Bruna da Conceição','1994/01/21','Flávi
        ('317.498.507-29','Juliana Elisa da Rosa','1961/05/20','Sebastiana Fátima','Diogo Mário Raul da Rosa','Casada','Travessa Rio Branco','(68) 2809-7322','juliana_darosa@icloub.com','Casa Ramalho','1900.00','2000/12/09','1234431-1','2076'),
        ('456.851.596-33','Vanessa Débora Carvalho','2004/05/12','Lorena Giovana Caroline','Marcos Geraldo Carvalho','Divorciado','Rua Leônidas de Góes Vieira','(15) 2583-8450','vanessa_debora_carvalho@aquino.com.br','Conserta Roupas','1750.00','1998/09/23','1054417-8','5442'),
        ('509.883.885-10','Danilo Guilherme Nelson Oliveira','1963/06/24','Vitória Giovana Teresinha','Caleb João Levi Oliveira','Separado','Rua Quatorze','(31) 3878-0407','danilo_oliveira@gimail.com','Terabyte','4500.00','1993/02/20','225898-6','3433');
+/* COMANDOS PASSO 3 */
+
+SELECT valor_ex, COUNT(valor_ex) FROM extrato;
+Select * from extrato GROUP BY tpTransacao_ex ORDER BY COUNT(tpTransacao_ex);
+SELECT * FROM extrato GROUP by _ex;
