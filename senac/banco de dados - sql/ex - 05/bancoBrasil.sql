@@ -29,7 +29,7 @@ CREATE TABLE cli_juridica(
    rmdBruto_ju FLOAT NOT NULL,
    numConta_ju VARCHAR(16) NOT NULL,
    numAgencia_ju NUMERIC NOT NULL
-   
+
 );
 /* TABELA DE FUNCIONÁRIOS */
 CREATE TABLE funcionarios(
@@ -37,15 +37,24 @@ CREATE TABLE funcionarios(
    cpf_fu VARCHAR(14) NOT NULL,
    nome_fu VARCHAR(100),
    dtNasci_fu DATE NOT NULL,
-   dtAdm DATE NOT NULL,
+   dtAdm_fu DATE NOT NULL,
    funcao_fu VARCHAR(50) NOT NULL,
-   dependente_fu VARCHAR(100) NOT NULL,
+   dependente_fu VARCHAR(1) CHECK(sexo_func IN ('S', 'N')),
    login_fu NUMERIC NOT NULL
 );
-
-
-drop table cli_juridica;
-select * from cli_juridica;
+/* DADOS DOS FUNCIONÁRIOS */
+INSERT INTO funcionarios(matri_fu, cpf_fu, nome_fu, dtNasci_fu, dtAdm_fu, funcao_fu, dependente_fu, login_fu)
+VALUES ('134.567.385-01','Alice Elisa Pires','1978/03/17','2017/03/12','Entregador','S','0928',''),
+       ('542.520.549-07','Raimunda Isadora dos Santos','1969/01/11','2017/09/02','Vendedor','S','0928'),
+       ('660.778.673-14','Analu Isabel Carolina Martins','1976/08/02','2013/09/23','Vendedor','N','0928'),
+       ('084.104.818-55','Ayla Alícia Fernanda Teixeira','1970/02/24','2020/02/31','Vendedor','S','0928'),
+       ('471.107.047-85','Antônia Vitória Campos','1956/08/01','2021/09/23','Entregador','S','0928'),
+       ('926.240.505-74','Juliana Camila Moura','1995/05/21','2019/09/12','Vendedor','N','0928'),
+       ('339.096.450-97','Eduardo Isaac Cavalcanti','1979/05/04','2017/12/09','Vendedor','N','0928'),
+       ('689.157.282-70','Laís Juliana Teixeira','2001/05/21','2018/05/25','Entregador','S','0928'),
+       ('949.059.938-73','Otávio Igor Cardoso','1944/06/11','2022/01/03','Entregador','N','0928'),
+       ('873.878.490-48','Carolina Alice da Cunha','1989/03/24','2018/03/12','Vendedor','N','0928');
+/* DADOS DE PESSOA JURÍDICA */
 INSERT INTO cli_juridica(cnpj_ju, rzSocial_ju, nomeFantasia_ju, end_ju, dtFundacao_ju, telef_ju, rmAtuacao, rmdBruto_ju, numConta_ju, numAgencia_ju)
 VALUES ('57.906.530/0001-10','saraeisis marcenariame','marcenariame','Rua Caraíbas','2017/06/05','(11) 2721-2188','Vendedor','3000.00','1034918-9','3039'),
        ('57.537.284/0001-77','alice eemanuel vidrosltda','eemanuel','Rua Poços de Caldas','2017/08/01','(11) 2943-4641','Vendedor','7000.00','140154-8','4787'),
