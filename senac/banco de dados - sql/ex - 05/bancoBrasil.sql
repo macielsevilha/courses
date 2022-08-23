@@ -1,6 +1,8 @@
 CREATE DATABASE bancoBrasil;
 use bancoBrasil;
+drop table ct_poupanca;
 
+/* TABELA DE PESSOAS FÍSICAS */
 CREATE TABLE cli_fisico(
    cpf_fi VARCHAR(14) PRIMARY KEY NOT NULL UNIQUE,
    nome_fi VARCHAR(100) NOT NULL,
@@ -35,34 +37,123 @@ CREATE TABLE cli_juridica(
 CREATE TABLE funcionarios(
    matri_fu INT PRIMARY KEY AUTO_INCREMENT,
    cpf_fu VARCHAR(14) NOT NULL,
-   nome_fu VARCHAR(100),
+   nome_fu VARCHAR(100) NOT NULL,
    dtNasci_fu DATE NOT NULL,
    dtAdm_fu DATE NOT NULL,
    funcao_fu VARCHAR(50) NOT NULL,
    dependente_fu VARCHAR(1) CHECK(sexo_func IN ('S', 'N')),
    login_fu NUMERIC NOT NULL
 );
-/* TABELA DE CONTAS CORRENTES */
+/* TABELA DE CONTA CORRENTE */
 CREATE TABLE ct_corrente(
    numConta_co VARCHAR(16) NOT NULL,
    numAgencia_co NUMERIC NOT NULL,
    cpf_co VARCHAR(14) PRIMARY KEY UNIQUE NOT NULL,
-   nome_co VARCHAR(100),
+   nome_co VARCHAR(100) NOT NULL,
    saldo_co VARCHAR(100) NOT NULL,
    taxa_co FLOAT NOT NULL,
    chavePix_co TEXT NOT NULL
 );
+/* TABELA DE CONTA POUPANÇA */
+CREATE TABLE ct_poupanca(
+   numConta_po VARCHAR(16) NOT NULL,
+   numAgencia_po NUMERIC NOT NULL,
+   cpf_po VARCHAR(14) PRIMARY KEY UNIQUE NOT NULL,
+   nome_po VARCHAR(100) NOT NULL,
+   saldo_po VARCHAR(100) NOT NULL,
+   chavePix_po TEXT NOT NULL
+);
+/* TABELA DE CONTA SALÁRIO */
+CREATE TABLE ct_salario(
+   numConta_sa VARCHAR(16) NOT NULL,
+   numAgencia_sa NUMERIC NOT NULL,
+   cnpj_sa CHAR(18) PRIMARY KEY UNIQUE NOT NULL,
+   cpf_sa char(14) NOT NULL,
+   nome_sa VARCHAR(100) NOT NULL,
+   salario_sa FLOAT NOT NULL,
+   saldo_sa FLOAT NOT NULL
+);
+/* TABELA DE EXTRATO */
+CREATE TABLE extrato(
+   agencia_ex INT(4) PRIMARY KEY UNIQUE NOT NULL,
+   numConta_ex VARCHAR(16) NOT NULL,
+   data_ex DATE NOT NULL,
+   tpTransacao_ex TEXT NOT NULL,
+   valor_ex FLOAT NOT NULL,
+   saldoAtual_ex FLOAT NOT NULL
+);
+/* TABELA DE CARTÃO DE CRÉDITO */
+CREATE TABLE ct_cartao(
+   numCartao_ca INT(8) PRIMARY KEY UNIQUE NOT NULL,
+   nomeCli_ca VARCHAR(100) NOT NULL,
+   validade_ca DATE NOT NULL,
+   codSeguranca_ca NUMERIC(4) NOT NULL UNIQUE 
+   vmcCartao_ca DATE NOT NULL,
+   bandeira_ca VARCHAR(55) NOT NULL,
+   limiteT_ca FLOAT NOT NULL,
+   limiteU_ca FLOAT NOT NULL,
+   limiteR_ca FLOAT NOT NULL,
+   dtVencimento_ca DATE NOT NULL
+);
+/* DADOS DE CARTÃO DE CRÉDITO */
+INSERT INTO ct_cartao(numCartao_ca, nomeCli_ca, validade_ca, codSeguranca_ca, vmcCartao_ca, bandeira_ca, limiteT_ca, limiteU_ca, limiteR_ca, dtVencimento_ca)
+       ('5336412373148734','Pietro Bruno Kaique Bernardes','2023/02/23','487','2024/01/23','MasterCard','10000.00','3000.00','7000.00','24/01/31'),
+       ('5111345189626231','Davi Calebe da Costa','2023/02/23','238','2024/01/23','MasterCard','10000.00','4000.00','6000.00','24/01/31'),
+       ('5340440336562596','Igor Marcos Vinicius Arthur Fernandes','2023/02/23','262','2024/01/23','MasterCard','10000.00','5000.00','5000.00','24/01/31'),
+       ('5463825225306876','Luzia Daiane Drumond','2023/03/23','519','2024/01/23','MasterCard','10000.00','1000.00','9000.00','24/01/31'),
+       ('5321011921232797','Alice Emanuelly Julia Santos','2023/04/23','995','2024/01/23','MasterCard','10000.00','3000.00','7000.00','24/01/31'),
+       ('5342858828865821','Francisca Eloá Andrea Cardoso','2023/02/23','798','2024/01/23','MasterCard','10000.00','2000.00','8000.00','24/01/31'),
+       ('5130643503949256','Isis Sophia Souza','2023/07/23','483','2024/01/23','MasterCard','10000.00','2500.00','7500.00','24/01/31'),
+       ('5198916444908543','Giovana Silvana Tatiane Pinto','2023/02/23','271','2024/01/23','MasterCard','10000.00','5000.00','5000.00','24/01/31'),
+       ('4556178367598582','Valentina Mariana Cavalcanti','2023/01/23','684','2024/01/23','Visa','50000.00','30000.00','20000.00','24/01/31'),
+       ('4485303815919539','Ruan Renato Mendes','2023/12/23','110','2024/01/23','Visa','50000.00','10000.00','40000.00','24/01/31')
+/* DADOS DE EXTRATO */
+INSERT INTO extrato(agencia_ex, numConta_ex, data_ex, tpTransacao_ex, valor_ex, saldoAtual_ex)
+VALUES ('2473','145204-5','2019/09/12','Boletos','2000.00','5000.00'),
+       ('3068','1061621-7','2018/12/20','Voucher','500.00','500.00'),
+       ('0870','1028740-X','2020/12/02','Pix','1200.00','28000.00'),
+       ('4127','1016796-X','2022/01/12','Pix','1302.99','6233.12'),
+       ('3152','0767256-P','2012/09/12','Boletos','120.00','0'),
+       ('1517','45468-0','2018/12/31','Cartões','72344.00','34000.00'),
+       ('0687','0319234-2','2017/03/21','Cartões','200.00','1000.00'),
+       ('1229','1079145-0','2019/03/12','Pix','2300.00','300.00'),
+       ('1426','94476-3','2019/05/04','Pix','100.00','122.00'),
+       ('3588','1134305-2','2019/03/12','Boletos','12.00','1200.00');
+/* DADOS DE CONTA SALÁRIO */
+INSERT INTO ct_salario(numConta_sa, numAgencia_sa, cnpj_sa, cpf_sa, nome_sa, salario_sa, saldo_sa)
+VALUES ('145204-5','2473','57.906.530/0001-10','784.707.838-40','Elaine Elza Bruna da Conceição','2000.00','7000.00'),
+       ('1298285-7','1409','57.537.284/0001-77','792.798.570-10','Malu Olivia Isabela da Mata','550.00','1000.00'),
+       ('1061621-7','3068','44.236.821/0001-05','639.911.055-60','Guilherme Oliver da Cunha','1200.00','10000.00'),
+       ('1608938-9','2301','84.334.195/0001-04','184.817.051-36','José Fábio Filipe Corte Real','3000.00','40000.00'),
+       ('74726-2','0870','66.237.375/0001-88','774.778.651-40','Malu Olivia Isabela da Mata','23000.00','230000.00'),
+       ('1133752-4','0610','55.656.115/0001-20','803.261.586-50','Ryan Oliver Jesus','2000.00','1000.00'),
+       ('1144519-X','2118','21.310.685/0001-42','641.094.178-13','Teresinha Sueli Aparício','3400.00','564.65'),
+       ('45971072-1','2138','09.508.964/0001-10','973.459.444-33','Augusto André da Mata','3299.00','78430.32'),
+       ('18128-5','5358','20.192.789/0001-37','192.596.377-24','Daniela Flávia Moura','300.00','3424.43'),
+       ('1028740-X','2359','28.667.073/0001-50','949.059.938-73','Otávio Igor Cardoso','788.00','4000.00');
+/* DADOS DE CONTAS POUPANÇAS */
+INSERT INTO ct_poupanca(numConta_po, numAgencia_po, cpf_po, nome_po, saldo_po, chavePix_po) 
+VALUES ('145204-5','2473','784.707.838-40','Elaine Elza Bruna da Conceição','7000.00','CB01[#L{{AQkh:UOeUS[x9GTR{r;})=oLo%T$JTZyit@Qn0LV='),
+       ('141201-9','1130','792.798.570-10','Teresinha Helena Sarah Farias','1000.00','I=6RipX?BC7kw)Dwsq*z9vNo4)4*mU}&hTbDb)B+%?oEmTzOp{'),
+       ('1209551-6','0432','509.883.885-10','Danilo Guilherme Nelson Oliveira','23000.00','gFo%g#I@Zs+WU?@y=AN2Qn24rSa$]SlQ+&_S_BwEUwa3qcpk0['),
+       ('1084029-X','6782','456.851.596-33','Vanessa Débora Carvalho','40500.50','IO5!6;?[o=2hs2@aK{cENcla+vG;K@#(B?fb=S2N[vkDRxU&ie'),
+       ('1061621-7','3068','774.778.651-40','Malu Olivia Isabela da Mata','30000.00','d90*wUw3}xs$he[tt)]Em1?[6g6oH!gP*ZlKr#EtV&*g{2!I;U'),
+       ('120662-1','2057','530.663.783-30','João Bryan das Neves','27000.00','KJNf)wh%lcQVoS7Vr]7CWvfJ]LA[mCyr5Hx1tH3_Qt9TP]E%pl'),
+       ('1016796-X','4127','535.382.607-88','Elaine Sophia Martins','76453.85','K[{f(SuGwdX?uy&[&AJ@ifqmoyIbcNH8Qh8x9e[bf]t:8D8dho'),
+       ('1133752-4','0610','317.498.507-29','Juliana Elisa da Rosa','904.99','Iw(knk+mb[*v0o%dTm5Mz}feH4NKO0GXqVfn(KJBh]n2v+nsK7'),
+       ('74726-2','0870','501.766.248-05','Cristiane Camila da Costa','7934.00','*Or9Tp=Xu]?sA4zzvCME*oXurn2_*JodIc2wp5P1ohv0yiWTRI');
+       
 /* DADOS DE CONTAS CORRENTES */
 INSERT INTO ct_corrente(numConta_co, numAgencia_co, cpf_co, nome_co, saldo_co, taxa_co, chavePix_co) 
-VALUES ('1142047-2','4552','784.707.838-40','Elaine Elza Bruna da Conceição','7000.00','0.5','CB01[#L{{AQkh:UOeUS[x9GTR{r;})=oLo%T$JTZyit@Qn0LV='),
-       ('0070425-3','6901','792.798.570-10','Teresinha Helena Sarah Farias','1000.00','0.7','I=6RipX?BC7kw)Dwsq*z9vNo4)4*mU}&hTbDb)B+%?oEmTzOp{'),
+VALUES ('1298285-7','1409','784.707.838-40','Elaine Elza Bruna da Conceição','7000.00','0.5','CB01[#L{{AQkh:UOeUS[x9GTR{r;})=oLo%T$JTZyit@Qn0LV='),
+       ('09416670-2','1725','792.798.570-10','Teresinha Helena Sarah Farias','1000.00','0.7','I=6RipX?BC7kw)Dwsq*z9vNo4)4*mU}&hTbDb)B+%?oEmTzOp{'),
        ('225898-6','3433','509.883.885-10','Danilo Guilherme Nelson Oliveira','23000.00','1.5','gFo%g#I@Zs+WU?@y=AN2Qn24rSa$]SlQ+&_S_BwEUwa3qcpk0['),
        ('1054417-8','5442','456.851.596-33','Vanessa Débora Carvalho','40500.50','2.4','IO5!6;?[o=2hs2@aK{cENcla+vG;K@#(B?fb=S2N[vkDRxU&ie'),
-       ('221191-2','1119','774.778.651-40','Malu Olivia Isabela da Mata','30000.00','1.2','d90*wUw3}xs$he[tt)]Em1?[6g6oH!gP*ZlKr#EtV&*g{2!I;U'),
+       ('1176571-2','0528','774.778.651-40','Malu Olivia Isabela da Mata','30000.00','1.2','d90*wUw3}xs$he[tt)]Em1?[6g6oH!gP*ZlKr#EtV&*g{2!I;U'),
        ('221191-2','1119','530.663.783-30','João Bryan das Neves','27000.00','1.8','KJNf)wh%lcQVoS7Vr]7CWvfJ]LA[mCyr5Hx1tH3_Qt9TP]E%pl'),
        ('1608938-9','2301','535.382.607-88','Elaine Sophia Martins','76453.85','3.4','K[{f(SuGwdX?uy&[&AJ@ifqmoyIbcNH8Qh8x9e[bf]t:8D8dho'),
-       ('1234431-1','2076','317.498.507-29','Juliana Elisa da Rosa','904.99','0.3','Iw(knk+mb[*v0o%dTm5Mz}feH4NKO0GXqVfn(KJBh]n2v+nsK7'),
-       ('1134436-9','1267','501.766.248-05','Cristiane Camila da Costa','7934.00','0.9','*Or9Tp=Xu]?sA4zzvCME*oXurn2_*JodIc2wp5P1ohv0yiWTRI');
+       ('134412-9','5442','317.498.507-29','Juliana Elisa da Rosa','904.99','0.3','Iw(knk+mb[*v0o%dTm5Mz}feH4NKO0GXqVfn(KJBh]n2v+nsK7'),
+       ('45394981-4','0331','501.766.248-05','Cristiane Camila da Costa','7934.00','0.9','*Or9Tp=Xu]?sA4zzvCME*oXurn2_*JodIc2wp5P1ohv0yiWTRI');
        
 /* DADOS DOS FUNCIONÁRIOS */
 INSERT INTO funcionarios(matri_fu, cpf_fu, nome_fu, dtNasci_fu, dtAdm_fu, funcao_fu, dependente_fu, login_fu)
@@ -89,7 +180,7 @@ VALUES ('57.906.530/0001-10','saraeisis marcenariame','marcenariame','Rua Caraí
        ('55.656.115/0001-20','kamil lyealessandr amudancasme','lyealessandr','Rua Jair Correia de Souza','2017/09/12','(19) 3890-4042','Vendedor','4000.00','96553-6','9339'),
        ('66.237.375/0001-88','rafaelei sabelly casanoturname','casanoturname','Rua Antonieta Del Picchia','2014/12/30','(19) 99291-8884','Vendedor','4000.00','1919576-7','1294');
        
-
+/* DADOS DE PESSOA FÍSICA */
 INSERT INTO cli_fisico(cpf_fi, nome_fi, dtNasci_fi, nomeMae_fi, nomePai_fi, etCivil_fi, end_fi, telef_fi, email_fi, empTrabalho_fi, salario_fi, dtAberturaCt_fi, numConta_fi, numAgencia_fi) 
 VALUES ('784.707.838-40','Elaine Elza Bruna da Conceição','1994/01/21','Flávia Giovanna Fátima','Breno Thales da Conceição','casado','Quadra Quadra 1 Conjunto A','(61) 2828-8802','elaine_elza_daconceicao@mpc.com.br','Americanas','2000.00','1995/04/20','1142047-2','4552'),
        ('501.766.248-05','Cristiane Camila da Costa','1997/07/08','Giovana Marli','Calebe Enzo da Costa','solteira','Viela Ernesto Carlos Costa','(11) 3943-8525','cristianecamiladacosta@brasildakar.com.br','Casa Bahia','1200.00','1954/04/12','1134436-9','1267'),
