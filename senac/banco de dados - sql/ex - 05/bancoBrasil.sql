@@ -270,7 +270,25 @@ CREATE USER 'pedroe.sabrina.20'@'localhost' IDENTIFIED BY '20975';
 CREATE USER 'claudio.eedson.20'@'localhost' IDENTIFIED BY '20975';
 
 /* COMANDOS PASSO 5 */
-GRANT;
+/* 02 Gerentes, terão todas as permissões em todo o banco */
+GRANT ALL PRIVILEGES ON bancoBrasil.* TO 'Alice.Elisa'@'localhost';
+GRANT ALL PRIVILEGES ON bancoBrasil.* TO 'Raimunda.Isadora'@'localhost';
+/* 01 Subgerente, permissões de pesquisar, inserir, atualizar e deletar no cliente físico */
+GRANT SELECT, INSERT, UPDATE, DELETE ON bancoBrasil.cli_fisico TO 'Maciel.Sevilha'@'%';
+/* 01 Subgerente, permissões de pesquisar, inserir, atualizar e deletar no cliente jurídico */
+GRANT SELECT, INSERT, UPDATE, DELETE ON bancoBrasil.cli_juridica TO 'Carlos.Silva'@'localhost';
+/* 01 Subgerente, permissões de pesquisar, inserir, atualizar e deletar no cartão de crédito */
+GRANT SELECT, INSERT, UPDATE, DELETE ON bancoBrasil.ct_cartao TO 'Bia.Oliveira'@'localhost';
+/* 01 Analista de TI, permissões create, drop, alter, atualizar, inserir, deletar e pesquisar em todas as tabelas do banco de dados */
+GRANT CREATE, DROP, ALTER, UPDATE, INSERT, DELETE, SELECT ON bancoBrasil.* TO 'Analu.Isabel'@'%';
+/* 05 Caixas, permissões de pesquisar, inserir e atualizar na tabela conta corrente e salário */
+GRANT SELECT, INSERT, UPDATE ON bancoBrasil.ct_corrente TO 'Carolina.Alice'@'localhost', 'Otávio.Igor'@'localhost', 'Laís.Juliana'@'%', 'Antônia.Vitória'@'localhost', 'Ayla.Alícia'@'localhost';
+/* 02 Estagiários, permissão somente de pesquisar tabela cliente */
+GRANT SELECT ON bancoBrasil.cli_fisico TO 'Eduardo.Isaac'@'localhost', 'Juliana.Camila'@'%';
+GRANT SELECT ON bancoBrasil.cli_juridica TO 'Eduardo.Isaac'@'localhost', 'Juliana.Camila'@'%';
+/* Para todos os clientes físicos, terão à permissão de pesquisar no extrato */
+GRANT SELECT ON bancoBrasil.extrato TO 'Elaine.Elza.10'@'localhost', 'Roberto.Bernardo.10'@'%', 'Vanessa.Débora.10'@'localhost', 'Danilo.Guilherme.10'@'%', 'João.Bryan.10'@'localhost';
+/* Revogar a permissão deletar de um dos Subgerentes */
 
 SELECT * FROM funcionarios;
 
