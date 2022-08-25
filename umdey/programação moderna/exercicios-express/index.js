@@ -10,6 +10,25 @@ app.use('/opa', (req, res, next) => {
     next()
 })
 
+app.get('/clientes/:id', (req, res) => {
+   res.send(`Cliente ${ req.params.id} selecionado!`)
+})
+
+app.get('/clientes/relarorio', (req, res) => {
+    res.send(`Cliente relatório: completo ${req.query.completo} ano = ${req.query.ano}`)
+})
+
+app.post('/corpo', (req, res) => {
+    let corpo = ''
+    req.on('data', function(parte) {
+        corpo += parte
+    })
+
+    req.on('end', function() {
+        res.send(corpo)
+    })
+})
+
 app.get('/opa',(req, res, next) => {
    console.log('Durante...')
      res.json({

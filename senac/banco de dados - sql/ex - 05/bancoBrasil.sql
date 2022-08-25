@@ -289,6 +289,35 @@ GRANT SELECT ON bancoBrasil.cli_juridica TO 'Eduardo.Isaac'@'localhost', 'Julian
 /* Para todos os clientes físicos, terão à permissão de pesquisar no extrato */
 GRANT SELECT ON bancoBrasil.extrato TO 'Elaine.Elza.10'@'localhost', 'Roberto.Bernardo.10'@'%', 'Vanessa.Débora.10'@'localhost', 'Danilo.Guilherme.10'@'%', 'João.Bryan.10'@'localhost';
 /* Revogar a permissão deletar de um dos Subgerentes */
+REVOKE DELETE ON bancoBrasil.cli_fisico FROM 'Maciel.Sevilha'@'%';
+/* Revogar todas as permissões de um dos caixas */
+REVOKE SELECT, INSERT, UPDATE ON bancoBrasil.ct_corrente FROM 'Ayla.Alícia'@'localhost';
+/* Revogar todas as permissões de um dos estagiários */
+REVOKE SELECT ON bancoBrasil.cli_fisico FROM 'Eduardo.Isaac'@'localhost', 'Juliana.Camila'@'%';
+REVOKE SELECT ON bancoBrasil.cli_juridica FROM 'Eduardo.Isaac'@'localhost', 'Juliana.Camila'@'%';
+/* Deletar dois usuários criados, um para cliente físico e outro para cliente jurídico */
+DROP USER 'João.Bryan.10'@'localhost';
+DROP USER 'claudio.eedson.20'@'localhost';
+/* Criar uma visão do cartão de crédito que mostre as informações: nome do cliente, o limite total, limite restante e seu vencimento */
+CREATE VIEW consultando AS SELECT nomeCli_ca, limiteT_ca, limiteR_ca, dtVencimento_ca FROM ct_cartao;
+/* Criar uma visão do cartão de crédito que mostre as informações: número do cartão, nome do cliente, validade, código de segurança */
+CREATE VIEW visao_Cartao AS SELECT numCartao_ca, nomeCli_ca, validade_ca, codSeguranca_ca FROM ct_cartao;
+/* Criar uma visão da conta corrente que mostre as informações: cpf do cliente, o número da conta e o saldo */
+CREATE VIEW visao_corrente AS SELECT cpf_co, numConta_co, saldo_co FROM ct_corrente;
+/* Crie uma visão da tabela cliente jurídico onde mostre somente cnpj da empresa, seu nome fantasia e seu rendimento bruto */
+CREATE VIEW visao_juridico AS SELECT cnpj_ju, nomeFantasia_ju, rmdBruto_ju FROM cli_juridica;
+/* Criar uma visão da tabela funcionário, onde mostre somente a matrícula do funcionário, função, dtAdm e login */
+CREATE VIEW visao_funcionarios AS SELECT matri_fu, funcao_fu, dtAdm_fu, login_fu FROM funcionarios;
+/* Execute duas visões criadas */
+SELECT * FROM bancoBrasil.consultando;
+SELECT * FROM bancoBrasil.visao_cartao;
+/* Depois atribua uma visão para o Estagiário, que teve as permissões revogadas */
+GRANT VIEW ON bancoBrasil.funcionarios TO'Eduardo.Isaac'@'localhost';
+
+
+/*  Depois atribua uma visão para o Caixa, que teve as permissões revogada */
+flush privileges;
+
 
 SELECT * FROM funcionarios;
 
