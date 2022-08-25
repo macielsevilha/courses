@@ -1,8 +1,13 @@
 const { response } = require('express')
 const express = require('express')
 const app = express()
+const boryParser = require('body-parser')
+
 const saudacao = require('./saudacaoMid')
 
+app.use(boryParser.text())
+app.use(boryParser.json())
+app.use(boryParser.urlencoded({extended: true}))
 app.use(saudacao('Maciel'))
 
 app.use('/opa', (req, res, next) => {
@@ -19,14 +24,15 @@ app.get('/clientes/relarorio', (req, res) => {
 })
 
 app.post('/corpo', (req, res) => {
-    let corpo = ''
-    req.on('data', function(parte) {
-        corpo += parte
-    })
+    //let corpo = ''
+    //req.on('data', function(parte) {
+    //    corpo += parte
+    //})
 
-    req.on('end', function() {
-        res.send(corpo)
-    })
+    //req.on('end', function() {
+    //    res.send(corpo)
+    //})
+    res.send(req.body)
 })
 
 app.get('/opa',(req, res, next) => {
