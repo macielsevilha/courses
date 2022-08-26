@@ -4,10 +4,15 @@ const app = express()
 const boryParser = require('body-parser')
 
 const saudacao = require('./saudacaoMid')
+const usuarioApi = require('./api/usuario')
+
+app.post('/usuario', usuarioApi.salvar)
+app.get('/usuario', usuarioApi.obter)
 
 app.use(boryParser.text())
 app.use(boryParser.json())
 app.use(boryParser.urlencoded({extended: true}))
+
 app.use(saudacao('Maciel'))
 
 app.use('/opa', (req, res, next) => {

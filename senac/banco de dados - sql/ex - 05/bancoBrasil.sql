@@ -312,13 +312,13 @@ CREATE VIEW visao_funcionarios AS SELECT matri_fu, funcao_fu, dtAdm_fu, login_fu
 SELECT * FROM bancoBrasil.consultando;
 SELECT * FROM bancoBrasil.visao_cartao;
 /* Depois atribua uma visão para o Estagiário, que teve as permissões revogadas */
-GRANT VIEW ON bancoBrasil.funcionarios TO'Eduardo.Isaac'@'localhost';
-
-
+SHOW GRANTS FOR 'Eduardo.Isaac'@'localhost';
+SHOW GRANTS FOR  'Juliana.Camila'@'%';
+SHOW GRANTS FOR 'Eduardo.Isaac'@'localhost';
+SHOW GRANTS FOR 'Juliana.Camila'@'%';
 /*  Depois atribua uma visão para o Caixa, que teve as permissões revogada */
+SHOW GRANTS FOR 'Ayla.Alícia'@'localhost';
+
 flush privileges;
-
-
-SELECT * FROM funcionarios;
 
 
