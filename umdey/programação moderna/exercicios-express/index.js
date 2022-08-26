@@ -5,6 +5,7 @@ const boryParser = require('body-parser')
 
 const saudacao = require('./saudacaoMid')
 const usuarioApi = require('./api/usuario')
+require('./api/produto')(app, 'com param!')
 
 app.post('/usuario', usuarioApi.salvar)
 app.get('/usuario', usuarioApi.obter)
@@ -12,6 +13,7 @@ app.get('/usuario', usuarioApi.obter)
 app.use(boryParser.text())
 app.use(boryParser.json())
 app.use(boryParser.urlencoded({extended: true}))
+
 
 app.use(saudacao('Maciel'))
 
