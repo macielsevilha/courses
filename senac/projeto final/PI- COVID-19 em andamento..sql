@@ -1,0 +1,113 @@
+CREATE DATABASE Covid_19;
+USE Covid_19;
+
+CREATE TABLE REGIAO_NORTE (
+etNORTE_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+dt_dia DATE NOT NULL,
+ttl_casos FLOAT NOT NULL NULL,
+ttl_mortes FLOAT NOT NULL NOT NULL,
+vci_1dose FLOAT NOT NULL,
+vci_2dose FLOAT NOT NULL,
+vci_3dose FLOAT NOT NULL,
+nvCasos_hr FLOAT NOT NULL,
+recuperados FLOAT NOT NULL,
+nvMortes_hr FLOAT NOT NULL,
+profissionais_infctd FLOAT NOT NULL,
+publico_infantil FLOAT NOT NULL,
+totalLeitos_UTI FLOAT NOT NULL,
+leitosOcpd_UTI FLOAT NOT NULL,
+leitosLivres_UTI FLOAT NOT NULL,
+totalLeitos_CLINICOS FLOAT NOT NULL,
+leitosOcpd_CLINICOS FLOAT NOT NULL,
+leitosLivres_CLINICOS FLOAT NOT NULL,
+dosesDistribuidas_N FLOAT NOT NULL
+);
+
+
+CREATE TABLE REGIAO_SUL(
+et_SUL_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+dt_dia DATE NOT NULL,
+ttl_casos FLOAT NOT NULL,
+ttl_mortes FLOAT NOT NULL,
+vci_1dose FLOAT NOT NULL,
+vci_2dose FLOAT NOT NULL,
+vci_3dose FLOAT NOT NULL,
+nvCasos_hr FLOAT NOT NULL,
+recuperados FLOAT NOT NULL,
+nvMortes_hr FLOAT NOT NULL,
+profissionais_infctd FLOAT NOT NULL,
+publico_infantil FLOAT NOT NULL,
+totalLeitos_UTI FLOAT NOT NULL,
+leitosOcpd_UTI FLOAT NOT NULL,
+leitosLivres_UTI FLOAT NOT NULL,
+totalLeitos_CLINICOS FLOAT NOT NULL,
+leitosOcpd_CLINICOS FLOAT NOT NULL,
+leitosLivres_CLINICOS FLOAT NOT NULL,
+dosesDistribuidas_SL FLOAT NOT NULL
+);
+
+CREATE TABLE REGIAO_NORDESTE(
+et_NORDESTE_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+dt_dia DATE NOT NULL,
+ttl_casos FLOAT NOT NULL,
+ttl_mortes FLOAT NOT NULL,
+vci_1dose FLOAT NOT NULL,
+vci_2dose FLOAT NOT NULL,
+vci_3dose FLOAT NOT NULL,
+nvCasos_hr FLOAT NOT NULL,
+recuperados FLOAT NOT NULL,
+nvMortes_hr FLOAT NOT NULL,
+profissionais_infctd FLOAT NOT NULL,
+publico_infantil FLOAT NOT NULL,
+totalLeitos_UTI FLOAT NOT NULL,
+leitosOcpd_UTI FLOAT NOT NULL,
+leitosLivres_UTI FLOAT NOT NULL,
+totalLeitos_CLINICOS FLOAT NOT NULL,
+leitosOcpd_CLINICOS FLOAT NOT NULL,
+leitosLivres_CLINICOS FLOAT NOT NULL,
+dosesDistribuidas_ND FLOAT NOT NULL
+);
+
+CREATE TABLE REGIAO_CENTRO_OESTE(
+et_CENTRO_OESTE_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+dt_dia DATE NOT NULL,
+ttl_casos DOUBLE NOT NULL,
+ttl_mortes DOUBLE NOT NULL,
+vci_1dose DOUBLE NOT NULL,
+vci_2dose DOUBLE NOT NULL,
+vci_3dose DOUBLE NOT NULL,
+nvCasos_hr DOUBLE NOT NULL,
+recuperados DOUBLE NOT NULL,
+nvMortes_hr DOUBLE NOT NULL,
+profissionais_infctd DOUBLE NOT NULL,
+publico_infantil DOUBLE NOT NULL,
+totalLeitos_UTI DOUBLE NOT NULL,
+leitosOcpd_UTI DOUBLE NOT NULL,
+leitosLivres_UTI DOUBLE NOT NULL,
+totalLeitos_CLINICOS DOUBLE NOT NULL,
+leitosOcpd_CLINICOS DOUBLE NOT NULL,
+leitosLivres_CLINICOS DOUBLE NOT NULL,
+dosesDistribuidas_CO DOUBLE NOT NULL
+);
+
+CREATE TABLE REGIAO_SUDESTE(
+et_SUDESTE_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+dt_dia DATE NOT NULL,
+ttl_casos FLOAT NOT NULL,
+ttl_mortes FLOAT NOT NULL,
+vci_1dose FLOAT NOT NULL,
+vci_2dose FLOAT NOT NULL,
+vci_3dose FLOAT NOT NULL,
+nvCasos_hr FLOAT NOT NULL,
+recuperados FLOAT NOT NULL,
+nvMortes_hr FLOAT NOT NULL,
+profissionais_infctd FLOAT NOT NULL,
+publico_infantil FLOAT NOT NULL,
+totalLeitos_UTI FLOAT NOT NULL,
+leitosOcpd_UTI FLOAT NOT NULL,
+leitosLivres_UTI FLOAT NOT NULL,
+totalLeitos_CLINICOS FLOAT NOT NULL,
+leitosOcpd_CLINICOS FLOAT NOT NULL,
+leitosLivres_CLINICOS FLOAT NOT NULL,
+dosesDistribuidas_SD FLOAT NOT NULL
+);
