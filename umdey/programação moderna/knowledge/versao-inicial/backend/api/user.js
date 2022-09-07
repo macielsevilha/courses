@@ -38,6 +38,12 @@ module.exports = app => {
               .then(_ => res.status(204).send())
               .catch(err => res.status(500).send(err))
          }
+         else {
+            app.db('users')
+               .insert(user)
+               .then(_ => res.status(204).send())
+               .catch(err => res.status(500).send(err))
+         }
     }
 
     const get = (req, res) => {
@@ -49,3 +55,4 @@ module.exports = app => {
 
     return { save, get }
 }
+
