@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import HeaderVue from './assets/components/template/Header.vue';
-import MenuVue from './assets/components/template/Menu.vue';
-import ContentVue from './assets/components/template/Content.vue';
-import FooterVue from './assets/components/template/Footer.vue';
+import HeaderVue from './components/template/Header.vue';
+import MenuVue from './components/template/Menu.vue';
+import ContentVue from './components/template/Content.vue';
+import FooterVue from './components/template/Footer.vue';
 
 export default {
 	name: "App",
