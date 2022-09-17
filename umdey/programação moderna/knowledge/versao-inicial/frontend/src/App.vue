@@ -1,6 +1,6 @@
 <template>
-	<div id="app">
-		<header-vue />
+	<div id="app">  
+		<header-vue title="Maciel - Base de conhecimento" :hideToggle="false" />
 		<menu-vue />
 		<content-vue />
 		<footer-vue />
