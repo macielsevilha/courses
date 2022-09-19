@@ -1,6 +1,8 @@
 <template>
 	<div id="app" :class="{'hide-menu' : !isMenuVisible}">  
-		<header-vue title="Maciel - Base de conhecimento" :hideToggle="false" />
+		<header-vue title="Maciel - Base de conhecimento" 
+		:hideToggle="false"
+		:hideUserDropdown="false" />
 		<menu-vue />
 		<content-vue />
 		<footer-vue />

@@ -24,7 +24,7 @@ export default {
   computed: {
     icon() {
         return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
-    }
+    } 
   },
   methods: {
     toggleMenu() {
@@ -66,6 +66,7 @@ export default {
     align-items: center;
    }
    header.header > a.toggle:hover {
+    color: #fff;
     background-color: rgba(0, 0, 0, 0.2);
    }
 </style>
