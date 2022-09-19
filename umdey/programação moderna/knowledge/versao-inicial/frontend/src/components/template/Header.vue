@@ -4,7 +4,7 @@
         <i class="fa fa-lg" :class="icon"></i>
     </a>
     <h1 class="title">
-        {{ title }}
+       <router-link to="/">{{ title }}</router-link>
     </h1>
     <user-dropdown-vue v-if="!hideUserDropdown" />
   </header>
@@ -51,6 +51,10 @@ export default {
     text-align: center;
    }
    .title a {
+    color: #fff;
+    text-decoration: none;
+   }
+   .title a:hover {
     color: #fff;
     text-decoration: none;
    }
