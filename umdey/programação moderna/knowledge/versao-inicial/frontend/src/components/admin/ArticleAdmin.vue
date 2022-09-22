@@ -1,21 +1,38 @@
 <template>
   <div class="article-admin">
       <b-form>
-          <input id="category-id" type="hidden" v-model="article.id" />
-          <b-form-group label="Nome:" label-for="category-name">
-              <b-form-input id="category-name" type="text"
+          <input id="article-id" type="hidden" v-model="article.id" />
+          <b-form-group label="Nome:" label-for="article-name">
+              <b-form-input id="article-name" type="text"
                   v-model="article.name" required
                   :readonly="mode === 'remove'"
-                  placeholder="Informe o Nome da Categoria..." />
+                  placeholder="Informe o Nome do Artigo..." />
           </b-form-group>
-          <b-form-group v-if="mode === 'save'" label="Categoria Pai:" label-for="category-parentId">
+          <b-form-group label="Descrição:" label-for="article-description">
+              <b-form-input id="article-description" type="text"
+                  v-model="article.description" required
+                  :readonly="mode === 'remove'"
+                  placeholder="Informe o Nome do Artigo..." />
+          </b-form-group>
+          <b-form-group label="Imagem (URL):" label-for="article-imageUrl">
+              <b-form-input id="article-imageUrl" type="text"
+                  v-model="article.imageUrl" required
+                  :readonly="mode === 'remove'"
+                  placeholder="Informe a URL da Imagem..." />
+          </b-form-group>
+          <b-form-group v-if="mode === 'save'" label="Categoria Pai:" label-for="article-categoryId">
               <b-form-select 
-                  id="category-parentId"
+                  id="article-categoryId"
                   :options="categories" v-model="article.parentId" />
-        
           </b-form-group>
-          <b-form-group label="Conteúdo" label-for="category-content">
-            <vue-editor v-model="article.content" placeholder="Informe o Conteúdo do Artigo..." />
+          <b-form-group v-if="mode === 'save'" label="Autor:" label-for="article-userId">
+              <b-form-select 
+                  id="article-userId"
+                  :options="users" v-model="article.parentId" />
+          </b-form-group>
+          <b-form-group v-if="mode === 'save'"  label="Conteúdo" label-for="article-content">
+            <vue-editor  :readonly="mode === 'remove'" v-model="article.content" placeholder="Informe o Conteúdo do Artigo..." />
+            
           </b-form-group>
           <b-button variant="primary" v-if="mode === 'save'"
               @click="save">Salvar</b-button>
@@ -41,6 +58,8 @@
 import { VueEditor } from 'vue2-editor'
 import { baseApiUrl, showError } from '@/global'
 import axios from 'axios'
+
+
 export default {
   name: 'ArticleAdmin',
   components: { VueEditor },
@@ -63,24 +82,24 @@ export default {
       }
   },
   methods: {
-      loadCategories() {
-          const url = `${baseApiUrl}/categories`
+      loadArticles() {
+          const url = `${baseApiUrl}/articles`
           axios.get(url).then(res => {
-              //// this.categories = res.data //
-              this.categories = res.data.map(category => {
-                  return { ...category, value: category.id, text: category.path }
-              })
+            //this.articles = res.data 
+            this.articles = res.data.data
+            this.count = res.data.count
+            this.limit = res.data.limit
           })
       },
       reset() {
           this.mode = 'save'
-          this.category = {}
-          this.loadCategories()
+          this.article = {}
+          this.loadArticles()
       },
       save() {
-          const method = this.category.id ? 'put' : 'post'
-          const id = this.category.id ? `/${this.category.id}` : ''
-          axios[method](`${baseApiUrl}/categories${id}`, this.category)
+          const method = this.article.id ? 'put' : 'post'
+          const id = this.article.id ? `/${this.article.id}` : ''
+          axios[method](`${baseApiUrl}/articles${id}`, this.article)
               .then(() => {
                   this.$toasted.global.defaultSuccess()
                   this.reset()
@@ -88,21 +107,41 @@ export default {
               .catch(showError)
       },
       remove() {
-          const id = this.category.id
-          axios.delete(`${baseApiUrl}/categories/${id}`)
+          const id = this.article.id
+          axios.delete(`${baseApiUrl}/articles/${id}`)
               .then(() => {
                   this.$toasted.global.defaultSuccess()
                   this.reset()
               })
               .catch(showError)
       },
-      loadCategory(category, mode = 'save') {
+      loadarticle(article, mode = 'save') {
           this.mode = mode
-          this.category = { ...category }
+          //this.article = { ...article }
+          axios.get(`${baseApiUrl}/articles/${article.id}`)
+               .then(res => this.article = res.data)
+      },
+      loadCategories() {
+        const url = `${baseApiUrl}/categories`
+        axios.get(url).then(res => {
+            this.categories = res.data.map(category => {
+                return { value: category.id, text: category.path }
+            })
+        })
+      },
+      loadUsers() {
+        const url = `${baseApiUrl}/users`
+        axios.get(url).then(res => {
+           this.users = res.data.map(user => {
+            return { value: user.id, text: `${user.name} - ${user.email}`}
+           })
+        })
       }
   },
   mounted() {
+      this.loadUsers()
       this.loadCategories()
+      this.loadArticles()
   }
 }
 </script>
