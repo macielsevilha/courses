@@ -3,7 +3,7 @@
       <page-title-vue icon="fa fa-folder-o" :main="category.name" sub="Categoria" />
       <ul>
         <li v-for="article in articles" :key="article.id">
-          {{ article.name }}
+          <article-item-vue :article="article" />
         </li>
       </ul>
       <div class="load-more">
@@ -17,10 +17,11 @@
   import { baseApiUrl } from '../../global';
   import Axios from 'axios';
   import PageTitleVue from '../template/PageTitle.vue';
+  import ArticleItemVue from './ArticleItem.vue';
   
   export default {
      name: 'ArticleByCategory',
-     components: { PageTitleVue },
+     components: { PageTitleVue, ArticleItemVue },
      data: function() {
       return {
           category: {},
