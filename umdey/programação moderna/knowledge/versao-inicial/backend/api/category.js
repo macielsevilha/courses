@@ -54,7 +54,7 @@ module.exports = app => {
 
     const withPath = categories => {
         const getParent = (categories, parentId) => {
-            const parent = categories.filter(parent => parent.id === parentId)
+            const parent = categories.map(parent => parent.id === parentId)
             return parent.length ? parent[0] : null
         }
 
@@ -89,7 +89,7 @@ module.exports = app => {
         app.db('categories')
             .where({ id: req.params.id })
             .first()
-            .then(category => res.json(category))
+            .then(category => res.json(categories))
             .catch(err => res.status(500).send(err))
     }
 
