@@ -1,9 +1,9 @@
 <template>
-	<div id="app" :class="{'hide-menu' : !isMenuVisible}">  
+	<div id="app" :class="{'hide-menu' : !isMenuVisible || !user} ">  
 		<header-vue title="Maciel - Base de conhecimento" 
-		:hideToggle="false"
-		:hideUserDropdown="false" />
-		<menu-vue />
+		:hideToggle="!user"
+		:hideUserDropdown="!user" />
+		<menu-vue v-if="user" />
 		<content-vue />
 		<footer-vue />
 	</div>
@@ -19,7 +19,7 @@ import FooterVue from './components/template/Footer.vue';
 export default {
 	name: "App",
 	components: { HeaderVue, MenuVue, ContentVue, FooterVue },
-	computed: mapState(['isMenuVisible'])
+	computed: mapState(['isMenuVisible', 'user'])
 }
 </script>
 
