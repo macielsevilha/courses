@@ -19,6 +19,7 @@ import Menu from "@/components/template/Menu"
 import Content from "@/components/template/Content"
 import Footer from "@/components/template/Footer"
 import Loading from "@/components/template/Loading"
+
 export default {
 	name: "App",
 	components: { Header, Menu, Content, Footer, Loading },
@@ -31,15 +32,19 @@ export default {
 	methods: {
 		async validateToken() {
 			this.validatingToken = true
+
 			const json = localStorage.getItem(userKey)
 			const userData = JSON.parse(json)
 			this.$store.commit('setUser', null)
+
 			if(!userData) {
 				this.validatingToken = false
 				this.$router.push({ name: 'auth' })
 				return
 			}
+
 			const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
+
 			if (res.data) {
 				this.$store.commit('setUser', userData)
 				
@@ -50,6 +55,7 @@ export default {
 				localStorage.removeItem(userKey)
 				this.$router.push({ name: 'auth' })
 			}
+
 			this.validatingToken = false
 		}
 	},
@@ -63,12 +69,15 @@ export default {
 	* {
 		font-family: "Lato", sans-serif;
 	}
+
 	body {
 		margin: 0;
 	}
+
 	#app {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+
 		height: 100vh;
 		display: grid;
 		grid-template-rows: 60px 1fr 40px;
@@ -78,6 +87,7 @@ export default {
 			"menu content"
 			"menu footer";
 	}
+
 	#app.hide-menu {
 		grid-template-areas:
 			"header header"
