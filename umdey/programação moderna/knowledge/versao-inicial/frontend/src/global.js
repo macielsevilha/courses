@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-export const userKey = 'knowledge'
+export const userKey = '\c '
 export const baseApiUrl = 'http://localhost:3000'
 
 export function showError(e) {
