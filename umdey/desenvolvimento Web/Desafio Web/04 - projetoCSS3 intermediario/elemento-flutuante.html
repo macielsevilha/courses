@@ -3,24 +3,41 @@
 <head>
 	<title>Elementos flutuantes</title>
 	<style type="text/css">
+		#principal {
+			border: 1px solid red;
+			background: green;
+		}
 		.conteudo {
 			background: blue;
 			border: 1px solid gray;
 			width: 150px;
 			height: 150px;
-			float: right;
+			float: left;
 			margin: 10px;
 		}
 		/*.conteudo1 {
 			background: red;
 			border: 1px solid gray;
 			width: 150px;
-			height: 150px;
-			float: right;
+			height: 190px;
+			float: left;
+			margin: 10px;
 		}*/
+		.conteudo-zero {
+			background: red;
+			border: 1px solid gray;
+			width: 150px;
+			height: 190px;
+			
+			margin: 10px;
+		}
+		.clear {
+			clear: both;
+		}
 	</style>
 </head>
 <body>
+<div id="principal">
   <div class="conteudo">
     Conteúdo 1
   </div>
@@ -30,5 +47,11 @@
   <div class="conteudo">
     Conteúdo 2
   </div>
+  <div class="clear"></div>
+ </div>
+  <p class="clear">
+  	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </p>
+
 </body>
 </html>
