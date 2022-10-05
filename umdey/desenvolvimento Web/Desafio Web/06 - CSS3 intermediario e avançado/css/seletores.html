@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Seletores</title>
+	<style type="text/css">
+		/**{
+			border: 1px solid red;
+		}*/
+		h1 {
+			color: red;
+		}
+		p.verde {
+			color: green;
+		}
+		span#id {
+			color: red;
+		}
+		li > a {
+			color: yellow;
+		}
+		li span a {
+			font-size: 20px;
+			color: red;
+		}
+		h1 + h2 {
+			color: red;
+		}
+		h3~h2 {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+  <div>
+  	<h1>Titulo</h1>
+  	<div>
+  	  <p class="verde">texto 1</p>
+  	  <span class="verde">Texto 2</span>
+  	  <span id="id">Seletor Id</span>
+  	  <li>
+  	  	<a href="">Filho de li</a>
+  	  	<span><a href="">descedente</a></span>
+  	  </li>
+    </div>
+  </div>
+  <div>
+  	<h2>irmão 3</h2>
+  	<h1>irmão de h1</h1>
+  	<h2>irmão 1</h2>
+  	<h2>irmão 2</h2>
+    
+    <h3>irmão geral</h3>
+    <h2>irmão 2</h2>
+    <h4>irmão de h1</h4>
+  	<h2>irmão 1</h2>
+  	<h2>irmão 2</h2>
+    		
+
+  </div>
+</body>
+</html>
