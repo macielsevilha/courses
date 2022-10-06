@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Navegação com abas</title>
+	<style type="text/css">
+     body {
+     	font-family: "Trebuchet MS", Helvetica, sans-serif;
+     }
+     ul {
+     	margin: 0;
+     	padding: 0;
+     	list-style: none;
+     	width: 720px;
+     }
+     ul li {
+     	float: left;
+     	background: url(./imgs/aba-direita.png) no-repeat top right;
+     }
+     li a {
+     	display: block;
+     	padding: 0 2em;
+     	line-height: 3em;
+     	text-decoration: none;
+        background: url(./imgs/aba-esquerda.png) no-repeat top left;
+        color: white;
+     }
+     ul a:hover {
+     	color: #894a1f;
+     }
+     ul #atual {
+     	background: url(./imgs/aba-direita-atual.png) no-repeat top right;
+     }
+     ul #atual a {
+     	background: url(./imgs/aba-esquerda-atual.png) no-repeat top left;
+     }
+	</style>
+</head>
+<body id="home">
+
+	<ul>
+      <li id="atual"><a href="/">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="noticias.html">Notícias</a></li>
+      <li><a href="contato.html">Contato</a></li>
+	</ul>
+
+	<!--<h2>Lista de atividades</h2>
+	<ul>
+		<li>Ir ao dentista</li>
+		<li>Ir ao supermercado</li>
+		<li>fazer o almoço</li>
+		<li>Assistir séries</li>
+		<li>Correr no parque</li>
+	</ul>-->
+
+</body>
+</html>
