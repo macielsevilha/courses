@@ -6,6 +6,11 @@ body {
 	font-family: 'Trebuchet MS', Helvetica, sans-serif;
 	background: #FFF url(./imgs/fundo.png) repeat-x;
 }
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 #container {
 	width: 750px;
 	margin: 0 auto;
@@ -20,4 +25,39 @@ body {
 	height: 66px;
 	background: url(./imgs/logo.png) no-repeat center;
 	text-indent: -3000px;
+}
+#topo ul {
+    background: #b10033;
+    margin-top: 30px;
+    float: left;
+
+}
+#topo ul li {
+	float: left
+}
+#topo ul a {
+	font-size: 0.9em;
+	display: block;
+	padding: 0.7em 1.5em;
+	text-decoration: none;
+	color: #fff;
+	background: url(./imgs/divisor.png) no-repeat left center;
+}
+#topo ul .primeiro a {
+	background: none;
+}
+#topo ul a:hover {
+	color: #69001d;
+}
+body.home #navegacao a#home,
+body.brasil #navegacao a#brasil,
+body.internacinal #navegacao a#internacional,
+body.economia #navegacao a#economia,
+body.saude #navegacao a#saude,
+body.ciencia #navegacao a#ciencia,
+body.fotos #navegacao a#fotos {
+  color: #fff;
+  background: #de003e;
+  cursor: text;
+
 }
