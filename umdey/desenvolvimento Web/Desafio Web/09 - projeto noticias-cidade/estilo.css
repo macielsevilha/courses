@@ -43,6 +43,10 @@ h3 {
 	font-size: 0.8em;
 	padding: 3px;
 }
+a:link, a:visited {
+	color: #b10333;
+	padding: 2px;
+}
 .destaque h3 {
 	background: #b10333;
 	color: #FFF;
@@ -50,6 +54,32 @@ h3 {
 .entrevista h3 {
 	background: #de003e;
 	color: #FFF;
+}
+#lista-noticias li{
+	padding: 2px;
+	border-bottom: 1px solid #ccc;
+	height: 65px;
+}
+#lista-noticias li a img{
+	float: left;
+	margin: 5px;
+}
+#lista-noticias li a {
+	text-decoration: none;
+	
+}
+#lista-noticias li a h3 {
+	font-size: 0.8em;
+	padding: 0;
+	color: #3e7ab9;
+}
+#lista-noticias li a p{
+	font-size: 0.8em;
+	color: #000;
+}
+#lista-noticias li:hover {
+	background: #eee;
+	cursor: pointer;
 }
 #container {
 	width: 750px;
