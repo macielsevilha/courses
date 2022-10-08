@@ -8,7 +8,7 @@ body {
 	margin: 5px;
 }
 #container {
-	background: #ede9cc;
+	background: #ede9cc url(./imgs/bg-container.png) top center repeat-y;
 	margin: 0 auto;
 	min-width: 740px;
 	max-width: 1180px;
@@ -101,3 +101,24 @@ img.depoimento {
 	width: 226px;
 	height: 164px;
 }
+
+#area-principal {
+     float: left;
+     padding: 15px 0px;
+     width: 50%;
+     background: url(./imgs/bg-area-principal.png) top left repeat-x;
+}
+#area-lateral {
+	float: right;
+	width: 50%;
+	padding: 20px 0;
+	background: url(./imgs/bg-area-lateral.png) top left repeat-x;
+}
+.conteudo {
+	margin: 0 auto;
+	width: 90%;
+}
+#rodape {
+	clear: both;
+}
+
