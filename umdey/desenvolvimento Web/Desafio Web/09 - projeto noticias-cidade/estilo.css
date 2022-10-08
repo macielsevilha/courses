@@ -33,6 +33,24 @@ input.submit {
 	background-color: #b10333;
 	border: 2px solid #870529;
 }
+img.imagem-principal {
+	width: 98%;
+	border: 3px solid #dfdfdf;
+}
+h3 {
+	text-transform: uppercase;
+	display: inline;
+	font-size: 0.8em;
+	padding: 3px;
+}
+.destaque h3 {
+	background: #b10333;
+	color: #FFF;
+}
+.entrevista h3 {
+	background: #de003e;
+	color: #FFF;
+}
 #container {
 	width: 750px;
 	margin: 0 auto;
@@ -97,7 +115,6 @@ body.fotos #navegacao a#fotos {
 	width: 270px;
 	float: left;
 	margin: 0 0 20px 195px;
-	background: blue;
 }
 #tres-colunas #primario {
 	width: 270px;
@@ -110,13 +127,11 @@ body.fotos #navegacao a#fotos {
 	width: 750px;
 	float: left;
 	margin: 0 0 20px 0px;
-	background: blue;
 }
 #secundario {
 	width: 270px;
 	float: left;
     margin: 0 0 20px 15px;
-	background: red;
 
 }
 
