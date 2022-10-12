@@ -6,7 +6,7 @@
 		#conteudo {
 			background: #dcdcdc;
 			height: 700px;
-			width: 700px;
+			width: 100%;
 			/*row[row-reverse|column|column-reverse]*/
 			display: flex;
 
@@ -19,17 +19,32 @@
 			align-items: baseline;*/
 		}
 		.item {
-			width: 100px;
+			
 			height: 100px;
 			margin: 10px;
 			background: white;
 			border: 1px solid gray;
             /*Define proporção de espaço ocupado por um item*/
-            flex-grow: 0;
+            flex-grow: 1;
+            /*Define a capacidade de redução de tamanho do item.*/
+            flex-shrink: 0;
+            /*Indica o tamanho inicial do flex item antes da distribuição do espaço restante.*/
+            flex-basis: 200px;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            -ms-flex-preferred-size: 200px;
+            flex-basis: 200px;
 		}
 		
 		 .item1{
-           flex-grow: 1;
+           /*flex-grow: 1;*/
+           flex-shrink: 3;
+		 }
+		 .item2 {
+		 	flex-shrink: 3;
 		 }
 		/*
 		.ordem1 {
@@ -50,7 +65,7 @@
   <h1>Flexbox</h1>
   <div id="conteudo">
      <div class="item item1" class="ordem3">01</div>
-     <div class="item" class="ordem2">02</div>
+     <div class="item item2" class="ordem2">02</div>
      <div class="item" class="ordem1">03</div>
      <div class="item" class="ordem4">04</div>
   </div>
