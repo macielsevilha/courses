@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //3 escopos: global, função e o bloco
+
+        var global = 'Até o último homem'
+
+        if (global !== null) {
+
+            var filme1 = '</br> Ambulância: um dia de crime'
+            document.write(global)
+        }
+
+        document.write(filme1)
+
+        function x() {
+            var filme2 = 'coração de Ferro'
+            if (filme2 !== null) {
+                var filme3 = '</br> Ambulância: um dia de <h1>Crime</h1>'
+            }
+            document.write(filme3)
+        }
+
+        x()
+
+    </script>
+</body>
+
+</html>
