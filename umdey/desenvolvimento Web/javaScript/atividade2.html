@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let name = prompt('Digite seu nome?')
+        let altura = prompt('Digite sua altura em centímetros?')
+        let peso = prompt('Digite seu peso?')
+
+        altura = parseFloat(altura)
+        peso = parseFloat(peso)
+
+        altura = (altura / 100)
+        let massa = peso / (altura * altura)
+
+        if (massa < 16) {
+            document.write('Olá ' + name + ' situação: Baixo peso muito grave, seu índice de massa é: ' + massa)
+        } else if (massa <= 16.99) {
+            document.write('Olá ' + name + ' situação: Baixo peso grav, seu índice de massa é: ' + massa)
+        } else if (massa <= 18.49) {
+            document.write('Olá ' + name + ' situação: Baixo pes, seu índice de massa é: ' + massa)
+        } else if (massa <= 24.99) {
+            document.write('Olá ' + name + ' situação: Peso norma, seu índice de massa é: ' + massa)
+        } else if (massa <= 29.99) {
+            document.write('Olá ' + name + ' situação: Sobrepes, seu índice de massa é: ' + massa)
+        } else if (massa <= 34.99) {
+            document.write('Olá ' + name + ' situação: Obesidade grau , seu índice de massa é: ' + massa)
+        } else if (massa <= 39.99) {
+            document.write('Olá ' + name + ' situação: Obesidade grau I, seu índice de massa é: ' + massa)
+        } else {
+            document.write('Olá ' + name + ' situação: Obesidade grau II, seu índice de massa é: ' + massa)
+        }
+
+
+        document.write('O índice de massa corporal é: ' + massa)
+
+
+
+    </script>
+</body>
+
+</html>
