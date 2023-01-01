@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //função callback
+        function exibirArtigo(id, callbackSuccess, callbackError) {
+
+            if (id != null) {
+                callbackSuccess('Aprendendo JS', 'Como o js mudou minha vida...')
+            } else {
+                callbackError('Erro na Aplicação!!!')
+            }
+        }
+
+        let categorias = function (titulo, conteudo) {
+            document.write('<h1>' + titulo + '<h1/>')
+            document.write('<h4>' + conteudo + '<h4/>')
+        }
+
+        let tratamentoDeErro = function (erro) {
+            document.write('<h5>' + erro + '</h5>')
+        }
+
+        exibirArtigo(undefined, categorias, tratamentoDeErro)
+
+
+    </script>
+</body>
+
+</html>
