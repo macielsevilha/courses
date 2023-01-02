@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        function mudarValor() {
+            var entrada = document.getElementById('entrada').value
+
+            document.getElementById('entrada').value = ''
+            entrada.trim()
+            switch (entrada) {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    document.getElementById('apenas_numeros').value += entrada
+                    break
+                default:
+                    document.getElementById('apenas_letras').value += entrada
+                    break;
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <input onkeyup="mudarValor()" id="entrada" type="text" placeholder="Digite um valor">
+
+    <hr />
+    <label for="letras">Letras:</label>
+    <input id="apenas_letras" type="text" disabled="disabled" name="letras" />
+
+    <label for="numero">Número:</label>
+    <input type="text" id="apenas_numeros" disabled="disabled" />
+
+</body>
+
+</html>
