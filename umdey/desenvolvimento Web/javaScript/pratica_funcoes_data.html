@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var data = new Date()
+
+        document.write(data.toString() + '</br>')
+        data.setFullYear(data.getFullYear() + 1)
+
+        document.write(data.toString() + '</br> <hr>')
+
+        data.setDate(data.getDay() + 7)
+        document.write(data.toString() + '</br> <hr>')
+
+
+
+        // 02/01/2023
+        var data1 = new Date(2023,01,01)
+        // 09/05/2023
+        var data2 = new Date(2023,05,09)
+
+        data1 = data1.getTime()
+        data2 = data2.getTime()
+
+        document.write(data1 + '</br>' +  data2)
+        document.write('</br> </br> <hr>' )
+
+        var calcularPorDiaMilesegundos = (1 * 24 * 60 * 60 * 1000)
+        var pegarMilesegundosEntreData = Math.abs(data1 - data2)
+
+        document.write('Um dia tem: ' + calcularPorDiaMilesegundos + ' Milesegundos <br>')
+        document.write('Seu aniversário resta: ' + pegarMilesegundosEntreData / calcularPorDiaMilesegundos)
+
+        
+    </script>
+</body>
+</html>
