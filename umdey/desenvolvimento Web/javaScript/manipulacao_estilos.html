@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <style>
+
+        body {
+            margin: 30px;
+        }
+
+        .caixa {
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+            margin-top: 20px;
+     
+
+        }
+        button {
+            padding: 10px 15px;
+        }
+      
+    </style>
+    
+</head>
+
+<body>
+
+    <h1>Manipulando estilo</h1>
+    <button type="button" onclick="modificarEstilo('#ff0000')">vermelho</button>
+    <button type="button" onclick="modificarEstilo('#00ff00')">verde</button>
+    <button type="button" onclick="modificarEstilo('#0000ff')">azul</button>
+
+    <div class="caixa" id="caixa">
+
+    </div>
+
+    <script>
+
+        function modificarEstilo(corDefundo) {
+            
+         document.getElementsByTagName('div')[0].style.backgroundColor = corDefundo
+        }
+
+    </script>
+  
+</body>
+
+</html>

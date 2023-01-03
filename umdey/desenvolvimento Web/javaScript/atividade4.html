@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="cor" onblur="modificarfundo()" type="text" placeholder="modificar cor do input...">
+    <script>
+
+        function modificarfundo() {
+            var corTamanho = document.getElementById('cor').value
+ 
+             if(corTamanho.length < 3) {
+                document.getElementById('cor').style.backgroundColor = 'red'
+             } else {
+                document.getElementById('cor').style.backgroundColor = 'green'
+             }
+
+
+        }
+
+    </script>
+</body>
+</html>
