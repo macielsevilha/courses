@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lista_frutas = ["manga", "uva", "laranja", "banana"]
+
+        lista_frutas.forEach((valor, indice, array) => {
+            console.log('valor: ' + valor)
+            console.log('índice: ' + indice)
+            console.log('array: ' + array)
+            if(valor == 'uva') {
+                array[indice] = 'novo valor'
+            }
+        })
+
+        console.log(lista_frutas)
+    </script>
+</body>
+</html>

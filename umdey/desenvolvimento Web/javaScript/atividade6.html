@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var lista_frutas = Array()
+
+        lista_frutas[0] = 'Mango'
+        lista_frutas[1] = 'Apple'
+        lista_frutas[2] = 'Pineapple'
+        lista_frutas[3] = 'Pomela'
+        lista_frutas[4] = 'Grapefruit'
+
+        lista_frutas.unshift('Peach')
+        lista_frutas.shift()
+
+        lista_frutas.push('Peach')
+        lista_frutas.pop()
+
+        for(var x = 0; x < lista_frutas.length; x++) {
+          document.write('frutas: ' + lista_frutas[x] + '<br />')
+        }
+
+        document.write('<hr /> <br />')
+
+        var x = 1
+        var y = 0
+
+        while (x <= 10) {
+          y = 1
+            while (y <= 10) {
+              document.write(x + 'x' + y + '=' + (x * y) + '<br />')
+                y++
+            }
+            x++
+
+            document.write('<hr> <br>')
+
+        }
+
+
+    </script>
+</body>
+</html>

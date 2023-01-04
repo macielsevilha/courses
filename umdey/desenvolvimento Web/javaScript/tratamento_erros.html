@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+   var video = Array()
+
+   video[1] = Array()
+   video[1]['nome'] = 'Fullametal Alchemist'
+   video[1]['categoria'] = 'Anime'
+
+   function getVideo(video) {
+
+    try {
+        console.log(video[0]['nome'])
+    } catch (error) {
+        throw new Error('Houve um erro mais não si preocupa estamos trabalhando agora')
+        tratamentoErro(error)
+        console.log('Erro na aplicação')
+    } finally {
+        console.log('aplicação quebrou')
+    }
+    console.log('executando outro bloco')
+   }
+
+   function tratamentoErro(e){
+    console.log(e)
+   }
+
+   getVideo(video)
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var lista_nomes = []
+        lista_nomes['nome'] = ['Maciel', 'Ana']
+        lista_nomes['frutas'] = 'banana'
+        lista_nomes['melhor'] = ['teste2', 'teste2']
+
+        for (const key in lista_nomes) {
+            if (Object.hasOwnProperty.call(lista_nomes, key)) {
+                const element = lista_nomes[key];
+                console.log(element)
+                
+            }
+        }
+    </script>
+</body>
+</html>
