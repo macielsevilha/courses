@@ -12,9 +12,9 @@
 <body onresize="ajustaTamanhoPalcoJogo()">
     <div class="painel">
         <div class="vidas">
-          <img src="./imagens/coracao_vazio.png" alt="">
-          <img src="./imagens/coracao_cheio.png" alt="">
-          <img src="./imagens/coracao_cheio.png" alt="">
+          <img id="v1" src="./imagens/coracao_cheio.png" alt="">
+          <img id="v2" src="./imagens/coracao_cheio.png" alt="">
+          <img id="v3" src="./imagens/coracao_cheio.png" alt="">
         </div>
         <div class="cronometro">
 
@@ -23,7 +23,7 @@
     <script>
         setInterval(() => {
             posicaoRandomica()
-        }, 1000);
+        }, 2000);
     </script>
 </body>
 </html>
