@@ -16,7 +16,7 @@ var cronometro = setInterval(() => {
      if (tempo < 0) {
           clearInterval(criaMosquito)
           clearInterval(cronometro)
-          alert('ganhou')
+          window.location.href = 'vitoria.html'
      } else {
           document.getElementById('cronometro').innerHTML = tempo
      }
