@@ -1,4 +1,3 @@
-
 var largura, altura
 var vidas = 1
 var tempo = 10
