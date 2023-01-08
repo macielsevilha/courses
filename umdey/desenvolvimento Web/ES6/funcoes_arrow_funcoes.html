@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let quadrado1 = function (x = 5) {
+            return x + x
+        }
+
+        let quadrado2 = (x = 10) => { 
+            return x + x
+        }
+        let quadrado3 = x => x * x // retorno implicito
+
+        document.write(quadrado3(10) + '<br />')
+
+        let parOuImpar = numero => numero % 2 === 0 ? 'par' : 'impar'
+         
+        
+
+        document.write(parOuImpar(3))
+    </script>
+</body>
+</html>
