@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let nome = 'Maciel'
+        let idade = 20
+        let sexo = 'Masculino'
+        profissao = 'Programador'
+
+        let objeto1 = {
+            nome: nome,
+            idade: idade,
+            sexo: sexo,
+            profissao: profissao,
+            exibirResumo: function () {
+                document.write(`${this.nome}, ${this.idade} anos, ${this.sexo} é ${this.profissao}`)
+            }
+
+        }
+        let objeto2 = {
+            nome, // nome = nome variável / valor = valor da variável
+            idade,
+            sexo,
+            profissao,
+            exibirResumo() {
+                document.write(`${this.nome}, ${this.idade} anos, ${this.sexo} é ${this.profissao}`)
+            }
+
+        }
+
+        // objeto1.exibirResumo()
+        objeto2.exibirResumo()
+    </script>
+</body>
+
+</html>
