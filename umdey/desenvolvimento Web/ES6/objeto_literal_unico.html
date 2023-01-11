@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let assinatura = {
+            idCliente: 1000,
+            descricao: 'Acesso a internet',
+            status() {
+                document.write('Ativo')
+            }
+        }
+
+        document.write(assinatura.descricao)
+
+        let y = assinatura
+        document.write(y.descricao)
+        document.write(assinatura.descricao + "<br><br>")
+
+        y.idCliente = 10
+        document.write(assinatura.idCliente)
+    </script>
+</body>
+
+</html>
