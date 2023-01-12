@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [10, 20, 30]
+
+        function teste1([a, , c, d = 'valor 40']) {
+          document.write('Teste 1: ' + a + ' ' + c + ' ' + d)
+        }
+
+        teste1(arr)
+
+        let obj = {
+           nome: 'Maciel ',
+           idade: 'idade ' + 20,
+           curriculo: {
+            profissao: 'Programador web ',
+            cursos: [' mysql', ' css', ' php', ' JS'],
+            telefone: ' Não disponível'
+           }
+        }
+
+        document.write('<br>-----------------------------------------------------------------------------------------------------<br>')
+
+        function teste2({nome: n, idade: i, curriculo: {profissao: p, cursos : c, telefone, t = ' teste '}}) {
+
+           
+
+            document.write('Carta de apresentação: ', n + i + ' profissão: ', c + telefone + t)
+        }
+
+        teste2(obj)
+    </script>
+</body>
+</html>

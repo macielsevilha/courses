@@ -23,7 +23,7 @@
         //objeto => {}
 
         // let {nome, descricao } = produto
-        let {nome: n, descricao: d, promocao: p = '87% Desconto', detalhes:  { peso, cor: c} } = produto
+        let {nome: n, descricao: d, promocao: p = '87% Desconto', detalhes:  { peso, cor: c = 'Não informado'} } = produto
 
         document.write(n + ', ' + d + ', ' + p + ', peso do produto ' + peso + ' cor do produto ' + c)
     </script>
