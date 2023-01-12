@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //contexto rest 
+
+        function soma(...param) {
+          let resultado = 0
+          param.forEach(v => resultado += v)
+
+          console.log(param)
+          return resultado
+        }
+
+        console.log(soma(3, 4, 5, 10, 3))
+
+        function multiplicacao(m, ...param) {
+            let resultado = 0
+            param.forEach(v => resultado += m * v)
+            return resultado
+        }
+
+        console.log(multiplicacao(5, 3, 5, 6, 10, 3))
+
+    </script>
+</body>
+</html>
