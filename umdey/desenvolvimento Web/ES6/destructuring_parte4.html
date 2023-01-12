@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //array 
+
+        let arr = [10,20,30,40,50]
+
+        let [a1, ...x] = arr
+
+        console.log(a1, x)
+
+        let obj = {
+            a: 10,
+            b: 20,
+            c: 30,
+            d: 40,
+            e: 50
+        }
+
+        let {a, ...v} = obj
+        console.log('Obj: ', a, v)
+    </script>
+</body>
+</html>
