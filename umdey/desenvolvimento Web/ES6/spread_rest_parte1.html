@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let tituloArtigo = 'O javascript é uma linguagem maravilhosa!'
+
+        console.log(tituloArtigo) 
+        console.log(...tituloArtigo) 
+        console.log([...tituloArtigo]) 
+
+        // arrays
+        let listaCurso1 = ['Javascript e html', 'teste']
+        let listaCurso2 = ['mysql e mongoDb']
+        let listaCursoCompleta = ['web compelo', 'android', ...listaCurso1, ...listaCurso2]
+
+        console.log(listaCursoCompleta) 
+
+        let pessoa = { nome: 'Ana', idade: 14 }
+        let clone = { endereco: 'Rua 123', ...pessoa}
+
+        console.log(clone) 
+    </script>
+</body>
+</html>
