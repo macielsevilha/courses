@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // requisição http
+        // resposta http
+        let Biciblete1 = {
+            cor: 'Verde',
+            marcha: 'única',
+            aro: 29,
+            pedalar() { console.log('Método pedalar executado') }
+        }
+        let Biciblete2 = {
+            cor: 'Vermelha',
+            marcha: 'Várias',
+            aro: 29,
+            pedalar() { console.log('Método pedalar executado') }
+        }
+        //--------------------------------------------
+        let BicibleteFactory = function(cor, marcha, aro) {
+             // requisição http
+            // resposta http
+           //lógica
+
+            return {
+                cor,
+                marcha,
+                aro,
+                pedalar() { console.log('Método pedalar executado') }
+            }
+        }
+
+        let Biciblete3 = BicibleteFactory('branco', 24, 'váriais')
+        Biciblete3 = BicibleteFactory('preto', 24, 'váriais')
+        console.log(Biciblete1)
+        console.log(Biciblete2)
+        console.log(Biciblete3)
+
+    </script>
+</body>
+
+</html>
