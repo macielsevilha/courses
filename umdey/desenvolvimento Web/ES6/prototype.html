@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //avião
+        // atributos cor e modelo; método levantarvoo
+
+        //objeto literal 
+        let aviao1 = {
+            cor: 'Vermelha',
+            modelo: 'Airbus a380',
+            levantarVoo: function() {
+                console.log('Levantar voo!!!')
+            }
+        }
+
+        //função construtora
+        let Aviao2 = function() {
+            this.cor = 'Verde',
+            this.modelo = 'Airbus a200',
+            this.levantarVoo = function() {
+                console.log('Levantar voo!!!')
+            }
+        }
+
+        let aviao2 = new Aviao2()
+        
+
+        //classes
+        class Aviao3 {
+            constructor() {
+                this.cor = 'Azul',
+                this.modelo = 'Airbus a1203'
+            }
+
+            levantarVoo() {
+                console.log('Levantar voo!!!')
+            }
+        }
+        
+        let aviao3 = new Aviao3()
+
+        console.log(aviao1)
+        console.log(aviao2)
+        console.log(aviao3)
+
+
+    </script>
+</body>
+</html>
