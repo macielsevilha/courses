@@ -1,4 +1,3 @@
-
 class Despesa {
     constructor(ano, mes, dia, tipo, descricao, valor) {
         this.ano = ano
@@ -56,8 +55,8 @@ class Bd {
             if (despesa === null) {
                 continue
             } 
-                despesas.push(despesa)
-            
+                despesa.id = i
+                despesas.push(despesa)  
         }
 
         return despesas
@@ -88,6 +87,10 @@ class Bd {
        } 
     
       return despesasFiltradas
+    }
+
+    remover(id) {
+      localStorage.removeItem(id)
     }
 
 }
@@ -126,8 +129,6 @@ function cadastrarDespesa() {
         modalBotao.innerHTML = 'Voltar'
         modalBotao.className = 'btn btn-success'
 
-        
-
         $('#modalRegistraDespesa').modal('show')
 
         ano.value = ''
@@ -146,7 +147,6 @@ function cadastrarDespesa() {
         modalBotao.className = 'btn btn-danger'
 
         $('#modalRegistraDespesa').modal('show')
-
     }
 }
 
@@ -192,13 +192,25 @@ function carregaListaDespesas(despesas = [], filtro = false) {
 
             linha.insertCell(2).innerHTML = d.descricao
             linha.insertCell(3).innerHTML = d.valor
+
+            //criar o botão de exclusão
+            let btn = document.createElement('button')
+            btn.className = 'btn btn-danger'
+            btn.innerHTML = '<i class="fas fa-times"></i>'
+            btn.id = `id_despesa_${d.id}`
+            btn.onclick = function() {
+               let id = this.id.replace('id_despesa_', '')
+               bd.remover(id)
+
+               window.location.reload()
+            }
+            linha.insertCell(4).append(btn)
             
-
         })
-
 }
 
 function pesquisarDespesa() {
+
     let ano = document.getElementById('ano').value
     let mes = document.getElementById('mes').value
     let dia = document.getElementById('dia').value
