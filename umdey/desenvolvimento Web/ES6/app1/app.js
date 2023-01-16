@@ -93,13 +93,24 @@ function cadastrarDespesa() {
     if (despesa.validarDados()) {
         bd.gravar(despesa)
 
+        console.log(despesa.ano)
         modalTitulo.innerHTML = 'Grvação sucesso'
         modalTitulo.className = 'text-success'
         modalConteudo.innerHTML = 'Despesa foi cadastrada com sucesso!'
         modalBotao.innerHTML = 'Voltar'
         modalBotao.className = 'btn btn-success'
 
+        
+
         $('#modalRegistraDespesa').modal('show')
+
+        ano.value = ''
+        mes.value = ''
+        dia.value = ''
+        tipo.value = ''
+        descricao.value = ''
+        valor.value = ''
+       
     } else {
 
         modalTitulo.innerHTML = 'Erro gravação'
