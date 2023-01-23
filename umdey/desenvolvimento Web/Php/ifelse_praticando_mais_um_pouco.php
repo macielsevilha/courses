@@ -10,17 +10,22 @@
     <?
     
     $usuario_possui_cartao_loja = true;
-    $valor_compra = 200.50;
+    $valor_compra = 100.50;
 
-    $valor_frete = 70;
-    $recebeu_desconto_frete = false;
+    $valor_frete = 200;
+    
+    $recebeu_desconto_frete = true;
 
-    if ($usuario_possui_cartao_loja && $valor_compra >= 100) {
-        $recebeu_desconto_frete = true;
+    if ($usuario_possui_cartao_loja && $valor_compra >= 400) {
         $valor_frete = 0;
-    } else {
-        $valor_compra += $valor_frete;
-    }
+    } else if($usuario_possui_cartao_loja && $valor_compra >= 300 ) {
+       $valor_frete = 50;
+    } else if($usuario_possui_cartao_loja && $valor_compra >= 200) {
+        $valor_frete = 100;
+    } else $recebeu_desconto_frete = false;
+    
+    $valor_compra + $valor_frete;
+
     ?>
 
   <h1>Detalhes de pedido</h1>
