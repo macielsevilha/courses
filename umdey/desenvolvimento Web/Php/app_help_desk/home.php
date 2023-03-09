@@ -26,6 +26,13 @@ require_once "validador_acesso.php";
         <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="logoff.php" class="nav-link">
+          SAIR
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <div class="container">    
@@ -44,8 +51,8 @@ require_once "validador_acesso.php";
                   </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="consultar_chamado.php">
-                    <img src="formulario_consultar_chamado.png" width="70" height="70">
+                   <a href="consultar_chamado.php">
+                  <img src="formulario_consultar_chamado.png" width="70" height="70">
                   </a>
                 </div>
               </div>
